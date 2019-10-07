@@ -50,10 +50,11 @@ class Vec3:
     def set_spherical(self, magnitude, theta, phi):
         """
         Sets the spherical coordinates manually and updates the cartesian
-        representation to match.
+        representation to match. Spherical coordinates use the physics convention of
+        theta for inclination and phi for azimuth for the simple purpose that I can't read.
 
         :param magnitude: Desired vector magnitude
-        :param theta: Elevation angle (in radians)
+        :param theta: inclination angle (in radians)
         :param phi: Azimuthal angle (in radians)
         :return: Unused
         """

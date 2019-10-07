@@ -1,3 +1,53 @@
+09 / 10 / 2019:
+Todo:
+- Continue working on the logic for behaviour
+- Begin breaking down the input (initial thinking is a config file)
+
+08 / 10 / 2019:
+Todo:
+- Add beetle entity and directional vector(s)?
+- Break down the logic for the actual behavioural portion of the project.
+
+
+07 / 10 / 2019:
+Todo:
+- (semi-done) Add debug view of each cue's actual vector.
+
+Done:
+- Rewrite Cues to use elevation and azimuth as per convention
+  - Should entities use this convention too? Decided not as entities don't really
+    need to be configurable in the same way
+- Add strength to Cues but keep it separate from the underlying Vec3
+- Added a Wind cue along with code to draw it in the plot. I'm not happy with how this
+  all looks but it's more important that it's functional at the moment.
+
+Notes:
+- The angular stuff could be solved by leaving Vec3 as it should be, then setting cues
+  to use elevation and azimuth according to the conventions used by the paper.
+- For strength, could a Cue always be a unit vector, then the magnitude parameter is applied
+  to the underlying vector for all calculations.
+- I think the separation is between world descriptions and geometric descriptions.
+- Realised I'm dumb and I used the physics convention for naming in spherical coordinate systems. This cost me
+  40 minutes of debugging.
+- I should add exceptions for the azimuthal and elevation positions. Azimuth shouldn't go past +-180 (and they should
+  be equivalent). Elevation shouldn't go past 90 or be less than 0. I guess internally having stupid azimuths shouldn't
+  cause a difference in behaviour but it makes usage easier.
+- Wind.add_to_world will require some messing around. In the world i think this should
+  be a vector pointing inward to the edge of the world, what about internally? I think
+  I'm conflating drawing on the world and internal representation again. No this one is
+  a bit more tricky. If the wind direction is 180deg then the position should be zero surely?
+
+  I can also just say the wind has an azimuthal position and the direction is always
+  pointing into the centre. I.e. the position of the cue determines the direction. But again
+  the point of confusion is that the vector which determines the position is pointing in
+  the opposite direction to that which should determine the cue direction; I'm not sure
+  this really matters now that I think about it.
+
+- I think it would also be good to add a debug visualisation step which
+  shows the actual vectors for each cue.
+- Feeling stressed but the visualisation should all be in place and the basic geometric
+  stuff should be straightforward.
+
 04 / 10 / 2019:
 
 Notes:
@@ -10,6 +60,9 @@ Notes:
   Internally, the strength is the vector magnitude but for visualisation the
   magnitude must be a unit vector (at least for lights).
 
+- MUST REMEMBER TO PROVIDE SETUP INSTRUCTIONS, this thing will be useless if
+  it only runs on my machine.
+
 Suggestions from meeting with Barbara:
 - Doing things using basic vector geometry seems to be appropriate.
 - Show the response for all cues present and then a combined response. This might
@@ -19,3 +72,4 @@ Suggestions from meeting with Barbara:
   The idea is to generate a distribution of responses which could model a population rather
   than generating a mean response. This was suggested as an additional requirement and not
   something to worry about immediately.
+

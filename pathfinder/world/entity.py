@@ -12,7 +12,7 @@ from pathfinder.util.vec3 import Vec3
 
 
 class Entity:
-    def __init__(self, origin=Vec3()):
+    def __init__(self, origin=Vec3(magnitude=0, theta=0, phi=0)):
         self.__origin = origin
 
     def origin(self):
