@@ -7,6 +7,39 @@ translated to cartesian to be plotted. Hence, this class to handle the tedium.
 import numpy as np
 
 
+def sum(a, b):
+    """
+    Vector sum of two 3D vectors
+    :param a: Vec3 to be summed
+    :param b: Vec3 to be summed
+    :return: Vec3 object containing a + b
+    """
+    point_list = zip(a.get_cartesian_as_list(), b.get_cartesian_as_list())
+    resultant_vector_as_list = [v1 + v2 for (v1, v2) in point_list]
+    resultant_vector = Vec3()
+    resultant_vector.set_cartesian(
+        resultant_vector_as_list[0],
+        resultant_vector_as_list[1],
+        resultant_vector_as_list[2]
+        )
+    return resultant_vector
+
+
+def sum_list(vector_list):
+    """
+    Sum a list of vectors to a single resultant vector.
+    :param vector_list: A list of Vec3 objects to be summed.
+    :return: The sum of the list.
+    """
+    vector_list = [x.get_cartesian_as_list() for x in vector_list]
+    x = sum([v[0] for v in vector_list])
+    y = sum([v[1] for v in vector_list])
+    z = sum([v[2] for v in vector_list])
+    resultant_vector = Vec3()
+    resultant_vector.set_cartesian(x, y, z)
+    return resultant_vector
+
+
 class Vec3:
     def __init__(self, magnitude=0, theta=0, phi=0):
         """

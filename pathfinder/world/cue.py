@@ -7,8 +7,10 @@ Default for a cue is placed at the origin with no strength.
 Cue is essentially a special case of entity which has additional properties.
 """
 
-from pathfinder.world.entity import *
-from pathfinder.util.vec3 import *
+from pathfinder.world.entity import Entity
+from pathfinder.util.vec3 import Vec3
+
+import numpy as np
 
 
 class Cue(Entity):

@@ -2,15 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fda5ecd4-8e25-4735-bded-a9f18601f7c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pathfinder/world/wind.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pathfinder/config.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pathfinder/definitions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pathfinder/util/deserialiser.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pathfinder/world/beetle.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pathfinder/testbed/scratch.py" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/testbed/scratch.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pathfinder/todo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/todo.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pathfinder/util/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/util/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pathfinder/util/vec3.py" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/util/vec3.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pathfinder/world/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/world/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pathfinder/world/cue.py" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/world/cue.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pathfinder/world/entity.py" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/world/entity.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pathfinder/world/light.py" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/world/light.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -186,7 +188,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

@@ -1,12 +1,28 @@
 09 / 10 / 2019:
 Todo:
-- Continue working on the logic for behaviour
-- Begin breaking down the input (initial thinking is a config file)
+- Logic for behaviour
+  - This can go in the beetle class. Pass it a list of cues and a strategy, it
+    does the rest and updates its direction appropriately (or define a new vector
+    with something like self.__newdirection)
 
+Done:
+- Add beetle entity and directional vector(s)?
+- Input at least for the cues required imminently is done using YAML. Makes
+  deserialisation reasonably straightforward and the file is human-friendly too.
+- Set default view to be a little more helpful. Still having doubts over visualisation
+
+Notes:
+- Hmm, I know where behaviour should go, but I don't know quite how to break it down.
+  - I had two strategies in mind. Winner-take-all and vector summation. The former is
+    unrealistic I think, but easy enough to implement.
+  - Know that if the beetle receives even-strength cues (e.g. two light sources) then
+    it can't orient.
+  - Could simply take the azimuthal difference of the resultant cue vector (by whatever
+    strategy) from the beetle's vector (unit vector along x-axis) as the bearing.
 08 / 10 / 2019:
 Todo:
-- Add beetle entity and directional vector(s)?
-- Break down the logic for the actual behavioural portion of the project.
+Done:
+(Did nothing this day, working on write-up)
 
 
 07 / 10 / 2019:

@@ -2,9 +2,9 @@
 Class to represent a single light cue, green or UV.
 """
 
-from pathfinder.world import *
-from pathfinder.util import *
+from pathfinder.world.cue import Cue
 
+import numpy as np
 
 class Light(Cue):
     def __init__(self, strength=1, elevation=np.pi/4, azimuth=np.pi/2, colour='green'):
@@ -14,6 +14,7 @@ class Light(Cue):
         :param strength: How powerful the light is
         :param elevation: The elevation at which the light sits on the dome. Radians.
         :param azimuth: The azimuth at which the light sits on the dome (from the x-axis). Radians.
+        :param colour: The colour of the light, not currently used.
         """
         super().__init__(strength=strength, elevation=elevation, azimuth=azimuth)
         self.__colour = colour
