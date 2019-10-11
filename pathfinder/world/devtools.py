@@ -53,3 +53,34 @@ class DevAxes(Entity):
         y = self.__y_vector.get_cartesian_as_list()
         z = self.__z_vector.get_cartesian_as_list()
         ax.quiver(origin, origin, origin, x, y, z, color=['b','k','k'], arrow_length_ratio=0.1)
+
+
+class DevCompassMarkings(Entity):
+    def __init__(self):
+        """
+        Development class to show basic compass markings for the bottom circle
+        """
+        super().__init__()
+
+        # Define a vector for each point on the compass: 0, 90, 180, 270
+        self.__points = [Vec3(magnitude=1, theta=np.pi/2),
+                         Vec3(magnitude=1, phi=-np.pi/2, theta=np.pi/2),
+                         Vec3(magnitude=1, phi=np.pi, theta=np.pi/2),
+                         Vec3(magnitude=1, phi=np.pi/2, theta=np.pi/2)]
+
+        self.__labelvecs = [Vec3(magnitude=1.2, theta=np.pi / 2),
+                            Vec3(magnitude=1.2, phi=-np.pi / 2, theta=np.pi / 2),
+                            Vec3(magnitude=1.2, phi=np.pi, theta=np.pi / 2),
+                            Vec3(magnitude=1.2, phi=np.pi / 2, theta=np.pi / 2)]
+
+    def add_to_world(self, ax):
+        points_for_drawing = [[[y] for y in x.get_cartesian_as_list()] for x in self.__points]
+        label_vecs_for_drawing = [x.get_cartesian_as_list() for x in self.__labelvecs]
+        labels = ["0", "90", "180", "-90"]
+
+        for i in range(4):
+            point = points_for_drawing[i]
+            label_vec = label_vecs_for_drawing[i]
+            ax.plot(point[0], point[1], point[2], color='black', marker='o', markersize=5)
+            ax.text(label_vec[0], label_vec[1], label_vec[2], labels[i])
+            i += 1

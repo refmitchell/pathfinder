@@ -4,7 +4,7 @@
 from pathfinder.world.light import Light
 from pathfinder.world.wind import Wind
 from pathfinder.world.dome import Dome
-from pathfinder.world.devaxes import DevAxes
+from pathfinder.world.devtools import DevAxes, DevCompassMarkings
 from pathfinder.world.beetle import Beetle
 from pathfinder.definitions import ROOT_DIR, CONFIG_FILE
 from pathfinder.util.deserialiser import Deserialiser
@@ -23,10 +23,11 @@ if __name__ == '__main__':
     cue_list = deserialiser.get_configuration()
 
     devax = DevAxes(magnitude=0.5)
+    devcompass = DevCompassMarkings()
     dome = Dome()
     beetle = Beetle()
 
-    entity_list = [dome, beetle]
+    entity_list = [dome, devcompass]
 
     cue_list_roll_one = cue_list[0]
     cue_list_roll_two = cue_list[1]
@@ -46,6 +47,11 @@ if __name__ == '__main__':
     for x in cue_list_roll_two:
         x.add_to_world(ax2)
 
+    beetle.compute_first_path(cue_list_roll_one)
+    beetle.compute_second_path(cue_list_roll_two)
+    beetle.add_to_world(ax)
+    beetle.add_to_world(ax2, draw_bearing_change=True)
+    print(beetle.get_result_string())
     '''
     #devax.add_to_world(ax)
     dome.add_to_world(ax)

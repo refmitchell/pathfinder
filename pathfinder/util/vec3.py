@@ -7,7 +7,33 @@ translated to cartesian to be plotted. Hence, this class to handle the tedium.
 import numpy as np
 
 
-def sum(a, b):
+def dot_product(a, b):
+    # Compute the scalar and return it
+    return sum(
+        [x1*x2 for (x1, x2) in zip(a.get_cartesian_as_list(), b.get_cartesian_as_list())]
+    )
+
+
+def projection(a, b):
+    """
+    Project a onto ("the line parallel to") b
+    :param a: Vec3
+    :param b: Vec3
+    :return: The projected result
+    """
+    # Get normalised b vector
+    b_list = b.get_spherical_as_list()
+    b.set_spherical(magnitude=1, theta=b_list[1], phi=b_list[2])
+
+    # Compute the magnitude of the projected vector
+    a1 = dot_product(a, b)
+
+    # Return a vector in the direction of b(_normal) but with the length
+    # of the projection
+    return Vec3(magnitude=a1, theta=b_list[1], phi=b_list[2])
+
+
+def vector_sum(a, b):
     """
     Vector sum of two 3D vectors
     :param a: Vec3 to be summed
@@ -25,7 +51,7 @@ def sum(a, b):
     return resultant_vector
 
 
-def sum_list(vector_list):
+def vector_sum_list(vector_list):
     """
     Sum a list of vectors to a single resultant vector.
     :param vector_list: A list of Vec3 objects to be summed.
@@ -38,6 +64,22 @@ def sum_list(vector_list):
     resultant_vector = Vec3()
     resultant_vector.set_cartesian(x, y, z)
     return resultant_vector
+
+
+def angle_between_degrees(a, b):
+    """
+    Get the angle between Vec3s a and b
+    :param a: Vec3
+    :param b: Vec3
+    :return: The angle between the two vectors in radians
+    """
+    scalar_product = dot_product(a, b)
+    mag_a = a.get_spherical_as_list()[0]
+    mag_b = b.get_spherical_as_list()[0]
+    cosine_of_angle = scalar_product / (mag_a * mag_b)
+    angle = np.arccos(cosine_of_angle)
+    return np.rad2deg(angle)
+
 
 
 class Vec3:

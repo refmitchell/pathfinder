@@ -1,3 +1,18 @@
+11 / 10 / 2019:
+Todo:
+- Logic implementation:
+  - The cues will all break down to a single vector:
+    - This means that it's probably easiest just to have the beetle
+      always travel in that direction.
+    - Whenever the combined cue-vector changes the beetle's direction changes
+  - Current solution is to have the beetle go towards its combined cue vector.
+    Creating a new beetle should allow you to track the change. This is a bad solution.
+Notes:
+- Yesterday spent trying to get some slides together, no code written
+- Congrats, you can add vectors together and do first year maths. Now you need to be able
+  to average them and project the response onto the ground
+
+
 09 / 10 / 2019:
 Todo:
 - Logic for behaviour

@@ -6,6 +6,7 @@ from pathfinder.world.cue import Cue
 
 import numpy as np
 
+
 class Light(Cue):
     def __init__(self, strength=1, elevation=np.pi/4, azimuth=np.pi/2, colour='green'):
         """
