@@ -33,24 +33,28 @@ if __name__ == '__main__':
     cue_list_roll_two = cue_list[1]
 
     fig = plt.figure()
-    ax = fig.add_subplot(221, projection='3d')
-    ax2 = fig.add_subplot(222, projection='3d')
+    first_roll_world_ax = fig.add_subplot(221, projection='3d')
+    second_roll_world_ax = fig.add_subplot(222, projection='3d')
+    first_roll_polar_ax = fig.add_subplot(223, projection='polar')
+    second_roll_polar_ax = fig.add_subplot(224, projection='polar')
 
     # Add world entities to both axes
     for x in entity_list:
-        x.add_to_world(ax)
-        x.add_to_world(ax2)
+        x.add_to_world(first_roll_world_ax)
+        x.add_to_world(second_roll_world_ax)
 
     for x in cue_list_roll_one:
-        x.add_to_world(ax)
+        x.add_to_world(first_roll_world_ax)
 
     for x in cue_list_roll_two:
-        x.add_to_world(ax2)
+        x.add_to_world(second_roll_world_ax)
 
     beetle.compute_first_path(cue_list_roll_one)
     beetle.compute_second_path(cue_list_roll_two)
-    beetle.add_to_world(ax)
-    beetle.add_to_world(ax2, draw_bearing_change=True)
+    beetle.add_to_world(first_roll_world_ax)
+    beetle.add_to_world(second_roll_world_ax, draw_bearing_change=True)
+
+
     print(beetle.get_result_string())
     '''
     #devax.add_to_world(ax)
@@ -81,11 +85,20 @@ if __name__ == '__main__':
               arrow_length_ratio=0.1)
     '''
 
-    ax.set_xlabel("x")
-    ax.set_ylabel("y")
-    ax.set_zlabel("z")
-    ax.view_init(elev=40, azim=-130)
-    ax2.view_init(elev=40, azim=-130)
-    ax.set_axis_off()
-    ax2.set_axis_off()
+    first_roll_world_ax.set_title("Roll 1: 3D World")
+    first_roll_world_ax.view_init(elev=40, azim=-130)
+    first_roll_world_ax.set_axis_off()
+
+    second_roll_world_ax.set_title("Roll 2: 3D World")
+    second_roll_world_ax.view_init(elev=40, azim=-130)
+    second_roll_world_ax.set_axis_off()
+
+    first_roll_polar_ax.set_rticks([])
+    first_roll_polar_ax.set_thetalim(-np.pi, np.pi)
+    first_roll_polar_ax.set_xticks(np.linspace(np.pi, -np.pi, 4, endpoint=False))
+    first_roll_polar_ax.set_theta_direction(-1)
+
+    first_roll_polar_ax.grid(False)
+    first_roll_polar_ax.set_theta_zero_location("N")
+
     plt.show()

@@ -1,6 +1,6 @@
 from pathfinder.world.entity import Entity
 from pathfinder.world.cue import Cue
-from pathfinder.util.vec3 import Vec3, vector_sum_list, projection, angle_between_degrees
+from pathfinder.util.vec3 import Vec3, vector_sum_list, projection, angle_between_degrees, angle_between_azimuthal
 
 import numpy as np
 
@@ -11,7 +11,10 @@ class Beetle(Entity):
         # Unit vector pointing along the x-axis. Beetle always goes in this
         # direction on the first roll for simplicity
         self.__first_roll = Vec3(magnitude=1, theta=np.pi / 2, phi=0)
+        self.__first_cue = Vec3(magnitude=1, theta=np.pi / 2, phi=0)
         self.__second_roll = Vec3(magnitude=1, theta=np.pi / 2, phi=0)
+        self.__second_cue = Vec3(magnitude=1, theta=np.pi / 2, phi=0)
+        self.__angle_offset = angle_between_azimuthal(self.__first_roll, self.__first_cue)
         self.__strategy = strategy
 
     def get_result_string(self):
@@ -21,18 +24,22 @@ class Beetle(Entity):
         return result_string
 
     def compute_first_path(self, cues):
-        self.__first_roll = self.__compute_path(cues, self.__first_roll)
+        self.__first_cue = self.__compute_combined_cue(cues)
+        self.__angle_offset = angle_between_azimuthal(self.__first_roll, self.__first_cue)
 
     def compute_second_path(self, cues):
-        self.__second_roll = self.__compute_path(cues, self.__second_roll)
+        self.__second_cue = self.__compute_combined_cue(cues)
+        cue_vec_list = self.__second_cue.get_spherical_as_list()
+        print("Offset from cue-vector: " + str(self.__angle_offset))
+        self.__second_roll = Vec3(magnitude=1,
+                                  theta=cue_vec_list[1],
+                                  phi=(cue_vec_list[2] + self.__angle_offset))
 
-    def __compute_path(self, cues, path_vector):
+    def __compute_combined_cue(self, cues):
         """
         Given a list of cues and a strategy this method will set the beetles initial
         bearing.
         :param cues: A list of Cue objects.
-        :param strategy: A strategy for combining cues. Supported: "sum",
-        "wta" (winner-takes-all)
         :return: Unused
         """
         if self.__strategy == "avg":
@@ -89,6 +96,17 @@ class Beetle(Entity):
                   color='black'
                   )
 
+        first_cue = [[x] for x in self.__first_cue.get_cartesian_as_list()]
+        ax.quiver(origin[0],
+                  origin[1],
+                  origin[2],
+                  first_cue[0],
+                  first_cue[1],
+                  first_cue[2],
+                  arrow_length_ratio=0.1,
+                  color='red'
+                  )
+
         if draw_bearing_change:
             second_roll = [[x] for x in self.__second_roll.get_cartesian_as_list()]
             # Colour are broken so plot separately
@@ -101,3 +119,14 @@ class Beetle(Entity):
                       arrow_length_ratio=0.1,
                       color='green'
                       )
+            second_cue = [[x] for x in self.__second_cue.get_cartesian_as_list()]
+            ax.quiver(origin[0],
+                      origin[1],
+                      origin[2],
+                      second_cue[0],
+                      second_cue[1],
+                      second_cue[2],
+                      arrow_length_ratio=0.1,
+                      color='orange'
+                      )
+

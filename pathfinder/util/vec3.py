@@ -71,7 +71,7 @@ def angle_between_degrees(a, b):
     Get the angle between Vec3s a and b
     :param a: Vec3
     :param b: Vec3
-    :return: The angle between the two vectors in radians
+    :return: The angle between the two vectors in degrees
     """
     scalar_product = dot_product(a, b)
     mag_a = a.get_spherical_as_list()[0]
@@ -80,6 +80,32 @@ def angle_between_degrees(a, b):
     angle = np.arccos(cosine_of_angle)
     return np.rad2deg(angle)
 
+
+def angle_between_radians(a, b):
+    """
+    Get the angle between Vec3s a and b
+    :param a: Vec3
+    :param b: Vec3
+    :return: The angle between the two vectors in radians
+    """
+    scalar_product = dot_product(a, b)
+    mag_a = a.get_spherical_as_list()[0]
+    mag_b = b.get_spherical_as_list()[0]
+    cosine_of_angle = scalar_product / (mag_a * mag_b)
+    angle = np.arccos(cosine_of_angle)
+    return angle
+
+
+def angle_between_azimuthal(a, b):
+    """
+    Take the straight signed azimuthal difference between a and b
+    :param a: Vec3
+    :param b: Vec3
+    :return: a.phi - b.phi
+    """
+    a = a.get_spherical_as_list()
+    b = b.get_spherical_as_list()
+    return a[2] - b[2]
 
 
 class Vec3:
@@ -159,4 +185,11 @@ class Vec3:
         :return: Both sets of coordinates as a 2D list, [[r, t, p],[x, y, z]]
         """
         return [self.get_spherical_as_list(), self.get_cartesian_as_list()]
+
+    def copy(self):
+        """
+        Get a copy of this Vec3
+        :return: A new Vec3 object with the same r, theta, and phi
+        """
+        return Vec3(magnitude=self.__r, theta=self.__theta, phi=self.__phi)
 

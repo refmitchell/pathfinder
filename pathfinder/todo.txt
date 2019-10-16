@@ -1,3 +1,15 @@
+16 / 10 / 2019:
+Todo:
+- Add 2D top-down plots:
+  - Plots added, now need an add_to_2D which is analagous to add_to_world but for
+    the 2D plots. The only things that need to go on this plot are the beetle paths and
+    cue directions.
+Notes:
+- Cue names need to be added, cue just needs a name field which can be read from the
+  pyyaml file.
+
+Done:
+- Make beetle go relative to a combined cue as opposed to following the cue directly
 11 / 10 / 2019:
 Todo:
 - Logic implementation:
