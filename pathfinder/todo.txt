@@ -1,3 +1,7 @@
+17 / 10 / 2019:
+Todo:
+- Beetle.add_to_2D method for the 2D plots.
+
 16 / 10 / 2019:
 Todo:
 - Add 2D top-down plots:

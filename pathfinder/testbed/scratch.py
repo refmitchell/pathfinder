@@ -53,6 +53,7 @@ if __name__ == '__main__':
     beetle.compute_second_path(cue_list_roll_two)
     beetle.add_to_world(first_roll_world_ax)
     beetle.add_to_world(second_roll_world_ax, draw_bearing_change=True)
+    beetle.add_to_polar(first_roll_polar_ax)
 
 
     print(beetle.get_result_string())
@@ -93,12 +94,14 @@ if __name__ == '__main__':
     second_roll_world_ax.view_init(elev=40, azim=-130)
     second_roll_world_ax.set_axis_off()
 
-    first_roll_polar_ax.set_rticks([])
+    #first_roll_polar_ax.set_rticks([])
+    first_roll_polar_ax.set_rmin(0)
+    #first_roll_polar_ax.set_rmax(1)
     first_roll_polar_ax.set_thetalim(-np.pi, np.pi)
     first_roll_polar_ax.set_xticks(np.linspace(np.pi, -np.pi, 4, endpoint=False))
     first_roll_polar_ax.set_theta_direction(-1)
 
-    first_roll_polar_ax.grid(False)
+    #first_roll_polar_ax.grid(False)
     first_roll_polar_ax.set_theta_zero_location("N")
 
     plt.show()

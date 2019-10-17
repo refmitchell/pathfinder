@@ -72,6 +72,34 @@ class Beetle(Entity):
         elif self.__strategy == "wta":
             print(self.__strategy)
 
+    def add_to_polar(self, ax, draw_bearing_change=False):
+        """
+        Draw the beetle's path onto the 2D polar axes.
+        :param ax: 2D polar axes for display.
+        :param draw_bearing_change: Boolean, set to tru if you want to draw the beetle's second roll.
+        :return: Unused
+        """
+        origin_theta = 0
+        origin_radius = 0        # Plot a point to represent the beetle
+
+        ax.plot(origin_theta, origin_radius, color='black', marker='o', markersize=3)
+
+        # Plot the first roll
+        first_roll_2D = self.__first_roll.get_polar_as_list()
+        first_cue_2D = self.__first_cue.get_2D_cartesian_as_list(modifier=100)
+
+        print(first_roll_2D)
+        print(first_cue_2D)
+
+        # In format for quiver plots
+        first_roll = [[x] for x in first_roll_2D]
+        first_cue = [[x] for x in first_cue_2D]
+
+        # Being lazy
+        ax.quiver(origin_theta, origin_radius, first_roll[0], first_roll[1], color='black')
+
+        # ax.quiver(origin_theta, origin_radius, first_cue[0], first_cue[1], color='red')
+
     def add_to_world(self, ax, draw_bearing_change=False):
         """
         Add the "beetle" to the world.

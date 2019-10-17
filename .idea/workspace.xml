@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fda5ecd4-8e25-4735-bded-a9f18601f7c1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pathfinder/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pathfinder/testbed/scratch.py" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/testbed/scratch.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pathfinder/todo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/todo.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pathfinder/util/vec3.py" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/util/vec3.py" afterDir="false" />
