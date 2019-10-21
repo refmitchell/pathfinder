@@ -198,14 +198,4 @@ class Vec3:
         Get 2D polar coordinates, r and phi
         :return: a list containing r and phi
         """
-        return [self.__r, self.__phi]
-
-    def get_2D_cartesian_as_list(self, modifier=1):
-        """
-        Get 2D cartesian coordinates for polar plots
-        :return: a list containing x and y
-        """
-        x = self.__r * np.cos(self.__phi) * modifier
-        y = self.__r * np.sin(self.__phi) * modifier
-        return [x, y]
-
+        return [-self.__phi, self.__r]

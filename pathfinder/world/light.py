@@ -8,7 +8,7 @@ import numpy as np
 
 
 class Light(Cue):
-    def __init__(self, strength=1, elevation=np.pi/4, azimuth=np.pi/2, colour='green'):
+    def __init__(self, name, strength=1, elevation=np.pi/4, azimuth=np.pi/2, colour='green'):
         """
         Create a light-based cue with a given position and strength. Default is a light of strength
         1 at 90 degrees azimuth and 45 degrees elevation.
@@ -17,7 +17,7 @@ class Light(Cue):
         :param azimuth: The azimuth at which the light sits on the dome (from the x-axis). Radians.
         :param colour: The colour of the light, not currently used.
         """
-        super().__init__(strength=strength, elevation=elevation, azimuth=azimuth)
+        super().__init__(name, strength=strength, elevation=elevation, azimuth=azimuth)
         self.__colour = colour
 
     def add_to_world(self, ax):
@@ -38,3 +38,5 @@ class Light(Cue):
                 color=self.__colour,
                 marker='o',
                 markersize=marker_size)
+
+        self.add_optional_elements(ax)

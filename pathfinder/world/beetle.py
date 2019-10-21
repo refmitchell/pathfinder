@@ -2,6 +2,8 @@ from pathfinder.world.entity import Entity
 from pathfinder.world.cue import Cue
 from pathfinder.util.vec3 import Vec3, vector_sum_list, projection, angle_between_degrees, angle_between_azimuthal
 
+import pathfinder.configuration as conf
+
 import numpy as np
 
 
@@ -15,11 +17,11 @@ class Beetle(Entity):
         self.__second_roll = Vec3(magnitude=1, theta=np.pi / 2, phi=0)
         self.__second_cue = Vec3(magnitude=1, theta=np.pi / 2, phi=0)
         self.__angle_offset = angle_between_azimuthal(self.__first_roll, self.__first_cue)
-        self.__strategy = strategy
+        self.__strategy = conf.combination_strategy
 
     def get_result_string(self):
         change_in_bearing = angle_between_degrees(self.__first_roll, self.__second_roll)
-        result_string = "Change in bearing: " + str(change_in_bearing)
+        result_string = "Absolute change in bearing: " + str(np.abs(change_in_bearing))
 
         return result_string
 
@@ -30,7 +32,7 @@ class Beetle(Entity):
     def compute_second_path(self, cues):
         self.__second_cue = self.__compute_combined_cue(cues)
         cue_vec_list = self.__second_cue.get_spherical_as_list()
-        print("Offset from cue-vector: " + str(self.__angle_offset))
+
         self.__second_roll = Vec3(magnitude=1,
                                   theta=cue_vec_list[1],
                                   phi=(cue_vec_list[2] + self.__angle_offset))
@@ -75,30 +77,44 @@ class Beetle(Entity):
     def add_to_polar(self, ax, draw_bearing_change=False):
         """
         Draw the beetle's path onto the 2D polar axes.
-        :param ax: 2D polar axes for display.
+        :param ax: 2D axes for display.
         :param draw_bearing_change: Boolean, set to tru if you want to draw the beetle's second roll.
         :return: Unused
         """
-        origin_theta = 0
-        origin_radius = 0        # Plot a point to represent the beetle
+        o_x = 0
+        o_y = 0
 
-        ax.plot(origin_theta, origin_radius, color='black', marker='o', markersize=3)
+        # Plot the beetle start point
+        ax.plot(o_x, o_y, color='black', marker='o', markersize=5)
 
         # Plot the first roll
-        first_roll_2D = self.__first_roll.get_polar_as_list()
-        first_cue_2D = self.__first_cue.get_2D_cartesian_as_list(modifier=100)
+        first_roll = self.__first_roll.get_polar_as_list()
+        first_cue = self.__first_cue.get_polar_as_list()
 
-        print(first_roll_2D)
-        print(first_cue_2D)
+        # Quiver plot
+        ax.quiver(o_x,
+                  o_y,
+                  [first_roll[0], first_cue[0]],
+                  [first_roll[1], first_cue[1]],
+                  color=['k', 'r'],
+                  angles='xy',
+                  scale_units='xy',
+                  scale=1)
 
-        # In format for quiver plots
-        first_roll = [[x] for x in first_roll_2D]
-        first_cue = [[x] for x in first_cue_2D]
+        if draw_bearing_change:
+            # Plot the first roll
+            second_roll = self.__second_roll.get_polar_as_list()
+            second_cue = self.__second_cue.get_polar_as_list()
 
-        # Being lazy
-        ax.quiver(origin_theta, origin_radius, first_roll[0], first_roll[1], color='black')
-
-        # ax.quiver(origin_theta, origin_radius, first_cue[0], first_cue[1], color='red')
+            # Quiver plot
+            ax.quiver(o_x,
+                      o_y,
+                      [second_roll[0], second_cue[0]],
+                      [second_roll[1], second_cue[1]],
+                      color=['g', 'orange'],
+                      angles='xy',
+                      scale_units='xy',
+                      scale=1)
 
     def add_to_world(self, ax, draw_bearing_change=False):
         """

@@ -8,9 +8,7 @@ if __name__ == '__main__':
     fig = plt.figure()
     ax = fig.gca(projection='3d')
 
-
     ax.quiver([0,0,0],[0,0,0],[0,0,0],[0,0,1],[0,1,0],[1,0,0], normalize=True, color=['r','g','b'])
-
 
     # Make data
     u = np.linspace(0, 2 * np.pi, 100)

@@ -1,3 +1,32 @@
+22 / 10 / 2019:
+Todo:
+- Fix angles, establish a system and stick with it.
+- Fix cue vector strength display (should be capped at 1, at least for polar plots, maybe ask about this)
+- Wind label is broken because it appears on the ground.
+  The wind vector positional information must be off. I tried to keep world vector and geometric
+  vectors separate. Wind needs an internal world representation.
+
+21 / 10 / 2019:
+Todo:
+
+Done:
+- Fixed 2D plotting
+- Ability to configure additional output for labels, geometry, individual cues has been added
+- Beetle strategy configuration has been added.
+- Added the configuration module which stores things for use at runtime.
+- Add label capability for cues
+  (Labels can be enabled in the config file and now they will be output)
+
+Notes:
+- On a broader level what configs do I need?
+  - Label elements (wind-1, light-1 or whatever)
+  - Geometry (the vectors used to compute the cue location)
+  - Individual cue directional prompts (where is each cue telling you to go)
+  - Beetle (only need to configure the strategy)
+- Also, should configs all be stored centrally? In definitions for example?
+  - Then I could import it into "cue" and use this to add some stuff???
+  - In any case I think this requires a fair bit of plumbing.
+- Label direction could be better I think. I'll leave it as is for now.
 17 / 10 / 2019:
 Todo:
 - Beetle.add_to_2D method for the 2D plots.

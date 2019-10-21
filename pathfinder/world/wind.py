@@ -1,18 +1,20 @@
 from pathfinder.world.cue import Cue
 from pathfinder.util.vec3 import Vec3
 
+import pathfinder.configuration as conf
+
 import numpy as np
 
 
 class Wind(Cue):
-    def __init__(self, strength=1, direction=np.pi/2):
+    def __init__(self, name, strength=1, direction=np.pi/2):
         """
         A Cue class to represent wind as a cue. In this case the azimuthal angle defines
         the direction of the wind
         :param strength: The strength of the wind
         :param direction: The angular direction of the wind.
         """
-        super().__init__(strength=strength, azimuth=direction)
+        super().__init__(name, strength=strength, azimuth=direction)
 
     def add_to_world(self, ax):
         """
@@ -35,3 +37,7 @@ class Wind(Cue):
                   world_vector_lists[2],
                   pivot='tip',
                   arrow_length_ratio=0.1)
+
+        # Optional additions
+        self.add_optional_elements(ax)
+

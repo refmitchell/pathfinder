@@ -2,6 +2,8 @@ from pathfinder.definitions import CONFIG_FILE
 from pathfinder.world.light import Light
 from pathfinder.world.wind import Wind
 
+import pathfinder.configuration as conf
+
 import yaml
 import numpy as np
 
@@ -19,7 +21,7 @@ class Deserialiser:
         params = [float(p) for p in params]  # Convert to floats
         return params
 
-    def __decode_light_parameters(self, dict):
+    def __decode_light_parameters(self, name, dict):
         """
         Decode a light yaml specification into a Light object
         :param dict: The dictionary containing the light parameters
@@ -28,7 +30,7 @@ class Deserialiser:
 
         # If the length is zero then there is no configuration info and nothing to do.
         if len(dict) == 0:
-            return Light()
+            return Light(name)
 
         strength = 1
         elevation = np.pi/4
@@ -41,9 +43,9 @@ class Deserialiser:
         if "azimuth" in dict:
             azimuth = np.radians(dict["azimuth"])
 
-        return Light(strength=strength, elevation=elevation, azimuth=azimuth)
+        return Light(name, strength=strength, elevation=elevation, azimuth=azimuth)
 
-    def __decode_wind_parameters(self, dict):
+    def __decode_wind_parameters(self, name, dict):
         """
         Decode wind parameters into a Wind object
         :param dict: The dictionary containing the wind parameters
@@ -52,7 +54,7 @@ class Deserialiser:
 
         # If the length is zero then there is no configuration info and nothing to do.
         if len(dict) == 0:
-            return Wind()
+            return Wind(name)
 
         strength = 1
         direction = np.pi/2
@@ -62,28 +64,58 @@ class Deserialiser:
         if "direction" in dict:
             direction = np.radians(dict["direction"])
 
-        return Wind(strength=strength, direction=direction)
+        return Wind(name, strength=strength, direction=direction)
 
-    def get_configuration(self):
+    def __decode_global_settings(self, settings):
         """
-        Decodes the cues from the config.yaml file and generates the corresponding
-        objects.
-        :return: A list containing two lists, one with the cue objects for the first roll
-        and another with the cue objects for the second roll.
+        Decode optional global settings, set in conf module from here.
+        :param settings: The dictionary with the settings.
+        :return: Unused.
         """
-        full_cue_list = []
+        if 'show-labels' in settings:
+            conf.show_labels = settings['show-labels']
+        if 'show-geometry' in settings:
+            conf.show_geometry = settings['show-geometry']
+        if 'show-individual' in settings:
+            conf.show_individual = settings['show-individual']
+        if 'combination-strategy' in settings:
+            conf.combination_strategy = settings['combination-strategy']
+
+    def __decode_cues(self, cuedefs):
+        """
+        Decode cues from yaml format into a list of Cue objects, returned to be set
+        from calling function.
+        :param cuedefs: The dictionary of cue definitions for a single roll
+        :return: The list of cues.
+        """
+        cues_for_this_roll = []
+        for name, parameters in cuedefs.items():
+            # Add an elif for each cue
+            if "light" in name:
+                cues_for_this_roll.append(self.__decode_light_parameters(name, parameters))
+            elif "wind" in name:
+                cues_for_this_roll.append(self.__decode_wind_parameters(name, parameters))
+
+        return cues_for_this_roll
+
+    def init_configuration(self):
+        """
+        Decodes the cues from the config.yaml file and generates the corresponding objects.
+        Objects are then saved to a central configuration module.
+
+        :return: A 2D list of the cues for each roll, should use conf directly though.
+        """
         with open(self.__config_path) as config:
-            data = yaml.load_all(config, Loader=yaml.FullLoader)
-            for doc in data:
-                cues = doc['cues']
-                cues_for_this_roll = []
-                for name, parameters in cues.items():
-                    # Add an elif for each cue
-                    if "light" in name:
-                        cues_for_this_roll.append(self.__decode_light_parameters(parameters))
-                    elif "wind" in name:
-                        cues_for_this_roll.append(self.__decode_wind_parameters(parameters))
+            data = yaml.load(config, Loader=yaml.FullLoader)
 
-                full_cue_list.append(cues_for_this_roll)
+            # Check existence of configuration switches then call the relevant functions
+            if 'settings' in data:
+                self.__decode_global_settings(data['settings'])
+            if 'cues-roll-one' in data:
+                conf.cues_roll_one = self.__decode_cues(data['cues-roll-one'])
+            if 'cues-roll-two' in data:
+                conf.cues_roll_two = self.__decode_cues(data['cues-roll-two'])
 
-        return full_cue_list
+            conf.print_configuration()
+
+        return [conf.cues_roll_one, conf.cues_roll_two]
