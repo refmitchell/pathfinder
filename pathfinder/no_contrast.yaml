@@ -31,9 +31,9 @@
 # Optional settings (must be configured for both rolls independently!)
 settings:
   # Display
-  show-labels: False     # Show a label for each cue (matches the name given below)
+  show-labels: True     # Show a label for each cue (matches the name given below)
   show-geometry: False   # Show the true geometric vectors used for cue computation.
-  show-individual: False # Show the directional prompt for each individual cue as well as the combined.
+  show-individual: True # Show the directional prompt for each individual cue as well as the combined.
 
   # Beetle
   combination-strategy: "avg" # Set combination strategy ("avg" will be the default if none configured)
@@ -42,8 +42,45 @@ settings:
 cues-roll-one:
   light-0:
     strength: 1
+    elevation: 30
+    azimuth: 45
+
+  light-1:
+    strength: 1
     elevation: 45
     azimuth: 45
+
+  light-2:
+    strength: 1
+    elevation: 60
+    azimuth: 45
+
+  light-3:
+    strength: 1
+    elevation: 75
+    azimuth: 45
+
+  light-4:
+    strength: 1
+    elevation: 30
+    azimuth: 225
+
+  light-5:
+    strength: 1
+    elevation: 45
+    azimuth: 225
+
+  light-6:
+    strength: 1
+    elevation: 60
+    azimuth: 225
+
+  light-7:
+    strength: 1
+    elevation: 75
+    azimuth: 225
+
+
 
 #
 # Second roll setup
@@ -52,5 +89,13 @@ cues-roll-two:
   light-0:
     strength: 1
     elevation: 45
-    azimuth: 225
+    azimuth: 135
 
+  light-1:
+    strength: 2
+    elevation: 30
+    azimuth: -45
+
+  wind-0:
+    strength: 2
+    direction: 90

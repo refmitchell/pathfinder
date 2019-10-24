@@ -1,0 +1,64 @@
+#
+# Test file in which I replicated the Milky Way experimental "high-elevation"
+#
+
+
+#
+# First roll setup
+#
+
+# Optional settings (must be configured for both rolls independently!)
+settings:
+  # Display
+  show-labels: True     # Show a label for each cue (matches the name given below)
+  show-geometry: False   # Show the true geometric vectors used for cue computation.
+  show-individual: True # Show the directional prompt for each individual cue as well as the combined.
+
+  # Beetle
+  combination-strategy: "avg" # Set combination strategy ("avg" will be the default if none configured)
+
+# Mandatory (if the cues section is not present the software will not work)
+cues-roll-one:
+  light-0:
+    strength: 1
+    elevation: 30
+    azimuth: 90
+
+  light-1:
+    strength: 1
+    elevation: 90
+    azimuth: 90
+
+  light-2:
+    strength: 1
+    elevation: 75
+    azimuth: 90
+
+  light-3:
+    strength: 1
+    elevation: 75
+    azimuth: -90
+
+  light-4:
+    strength: 1
+    elevation: 60
+    azimuth: -90
+
+  light-5:
+    strength: 1
+    elevation: 30
+    azimuth: -90
+
+#
+# Second roll setup
+#
+cues-roll-two:
+  light-0:
+    strength: 1
+    elevation: 85
+    azimuth: 90
+
+#  light-1:
+#    strength: 1
+#    elevation: 30
+#    azimuth: -90

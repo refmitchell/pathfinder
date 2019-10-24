@@ -1,11 +1,61 @@
+Known issues (if ever you don't have a task, come here):
+- Angles are correct but systems are inconsistent, some output has +ve as clockwise,
+  other output has -ve as clockwise. This needs to be consistent.
+
+- Wind cue label is broken due to wind not having a "world position". This world position
+  should be up by 1 and out by 1 (in the wind direction) as that's where the wind vector
+  is drawn.
+
+Shelved for now:
+- Combined cue strength in polar plots should be limited at 1, otherwise the end of the
+  vector is unreadable; this may be a bit of a non-issue however as the meaning is still clear
+  and combined strengths of more than 1 should still be displayed in the 3D world.
+
+  Reason: I need to speak to Barbara about this.
+
+23 / 10 / 2019:
+Todo:
+- For now, focus on bugfixes:
+  - Angles are correct but systems are inconsistent, some output has +ve as clockwise,
+    other output has -ve as clockwise. This needs to be consistent.
+
+
+Done:
+- Fixed wind labelling: Added a label position parameter and an override method as well as default behaviour.
+  The direction looks a little weird but it's readable so I'm not too fussed
+Notes:
+- Found that no work has been done on Light elevation in the lab. Without any lead on
+  light elevation with relation to reliability i turned to stellar performance which
+  led to a whiteboard session and much confusion. Their results appear to be contradictory.
+- Then again, what did Ramsey say about this??? Ramsey was wrong about this too. He stated they
+  do not produce a bimodal distribution, however, the paper states that they DO! Though,
+  these results appear inconsistent. Maybe his RV model needs another look.
+
+- Curious problem with the results from stellar performance.
+
+- Think it's outside scope, but I don't take into account cues present in the first roll
+  vs cues present in the second. This could be an issue though, so ask.
+
 22 / 10 / 2019:
 Todo:
-- Fix angles, establish a system and stick with it.
-- Fix cue vector strength display (should be capped at 1, at least for polar plots, maybe ask about this)
-- Wind label is broken because it appears on the ground.
-  The wind vector positional information must be off. I tried to keep world vector and geometric
-  vectors separate. Wind needs an internal world representation.
+- I should attempt to establish a lower threshold for menotactic capabilities in terms of
+  cue vector magnitude: (This brought up issues; I misread that paper).
+  - Possible sources:
+    - Stellar performance milky way paper
+    - anything concerning light elevation (i.e. the multimodal compass paper)
 
+Done:
+- Add strength output
+- Add the cue direction given by each vector (strength projected onto the ground)
+
+Notes:
+- Haven't implemented weighting yet; this will also need a change to the config format yet again.
+  - I think I should have show-weighted-geometry, but then I have an issue in that the beetle is where the
+    weighting is applied and a beetle isn't a Cue. I.e. I need to define add_weighted_whatever to the beetle drawing
+    code.
+  - I think I should also have an option to show weighted individual cues.
+- Could also do a test scenario: arrange the lights as in the Milky Way tests and see if the cue output is what you
+  expect.
 21 / 10 / 2019:
 Todo:
 

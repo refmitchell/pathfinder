@@ -26,6 +26,8 @@ class Light(Cue):
         :param ax: The Axes3D which represent the world
         :return: Unused
         """
+        super().add_to_world(ax)
+
         world_vector = self.get_world_position().get_cartesian_as_list()
         world_position = [[x] for x in world_vector]
 
@@ -38,5 +40,3 @@ class Light(Cue):
                 color=self.__colour,
                 marker='o',
                 markersize=marker_size)
-
-        self.add_optional_elements(ax)

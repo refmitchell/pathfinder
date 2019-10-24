@@ -16,12 +16,20 @@ class Wind(Cue):
         """
         super().__init__(name, strength=strength, azimuth=direction)
 
+        # Wind's default label position is broken so we override it here.
+        label_vector = self.get_world_position().copy()
+        x, y, z = label_vector.get_cartesian_as_list()
+        z += 1  # Add 1 to the z coordinate of this vector
+        label_vector.set_cartesian(x, y, z)
+        self.set_label_position(label_vector)
+
     def add_to_world(self, ax):
         """
         Method to add the wind cue to a 3D world (Axes3D)
         :param ax: The Axes3D which represents the world
         :return: Unused
         """
+        super().add_to_world(ax)
         world_vector_list = self.get_world_position().get_cartesian_as_list()
         world_vector_lists = [[x, x] for x in world_vector_list]
 
@@ -37,7 +45,3 @@ class Wind(Cue):
                   world_vector_lists[2],
                   pivot='tip',
                   arrow_length_ratio=0.1)
-
-        # Optional additions
-        self.add_optional_elements(ax)
-
