@@ -1,0 +1,75 @@
+# Pathfinder configuration file
+
+# Optional settings: These all have defaults and none need be explicitly specified.
+settings:
+  ### Display settings ###
+  # Valid: True, False
+
+  # Show a label for each cue (matches the name given below) (Default: False)
+  show-labels: True
+
+  # Show the true (scaled - see below) geometric vectors used for cue computation. (Default: False)
+  show-geometry: True
+
+  # Show the directional prompt for each individual cue as well as the combined. (Default: False)
+  show-individual: True
+
+  # Minimum "confidence" required to provide successful menotaxis. (Default: 0)
+  # Valid: x, where 0 <= x <= 1.
+  confidence-threshold: 0.2
+
+  ### Beetle settings ###
+  # Set combination strategy (Default: "avg")
+  # Valid: avg, wta
+  combination-strategy: "avg"
+
+  # Specify the scaling applied to each cue. The number given is applied as a direct multiplier to the cue strength
+  # for each cue of the appropriate type. For example, if we want to see what would happen if the beetle is twice as
+  # sensitive to wind as it is to light we could use:
+  #  cue-strength-scaling:
+  #    light: 1
+  #    wind: 2
+  # (Default: 1)
+  # Valid: Any positive real number. Negatives will be replaced by Default value.
+  # This may be used as an amplification factor, a weighting factor, or a way to specify cue hierarchy. The
+  # interpretation and usage is up to the user.
+  cue-strength-scaling:
+    light: 2
+    wind: 1
+
+# Mandatory configuration: cues for each roll must be specified.
+
+# Supported cues:
+# light, requires a strength, elevation, and azimuth
+# wind, requires a strength and a direction
+
+# Example cue configuration
+# cues-roll-[one|two]:
+#   light-0:
+#     strength: 1
+#     elevation: 45
+#     azimuth: 90
+#   wind-0:
+#     strength: 1
+#     direction: 45
+#
+
+### Roll one ###
+cues-roll-one:
+  light-0:
+    strength: 1
+    elevation: 45
+    azimuth: 45
+
+  light-1:
+    strength: 1
+    elevation: 80
+    azimuth: 225
+
+### Second roll setup ###
+cues-roll-two:
+  light-0:
+    strength: 1
+    elevation: 45
+    azimuth: 225
+

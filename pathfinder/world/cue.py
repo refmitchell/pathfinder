@@ -11,6 +11,8 @@ from pathfinder.world.entity import Entity
 from pathfinder.util.vec3 import Vec3, projection
 
 import pathfinder.configuration as conf
+import pathfinder.util.colours as colours
+
 
 import numpy as np
 
@@ -34,6 +36,7 @@ class Cue(Entity):
         self.__world_position = self.__update_world_position()
         self.__label_position = self.__world_position.copy()
         self.__name = name
+        self.__scale_factor = 1
 
     #
     # Private methods
@@ -100,6 +103,9 @@ class Cue(Entity):
         """
         self.__label_position = positional_vector
 
+    def set_scale_factor(self, scale_factor):
+        self.__scale_factor = scale_factor if scale_factor > 0 else 1
+
     #
     # Getters
     #
@@ -130,6 +136,18 @@ class Cue(Entity):
 
         # Define a new vector with the updated radius parameter and the same angular position
         return Vec3(magnitude=self.__strength, theta=world_vector_list[1], phi=world_vector_list[2])
+
+    def get_scaled_vector_description(self):
+        """
+        Retrieve the internal geometric description for computation
+        :return: A vector with the same direction as the world representation but
+        with updated strength.
+        """
+        world_vector = self.get_world_position()
+        world_vector_list = world_vector.get_spherical_as_list()
+
+        # Define a new vector with the updated radius parameter and the same angular position
+        return Vec3(magnitude=self.__strength*self.__scale_factor, theta=world_vector_list[1], phi=world_vector_list[2])
 
     # Universal drawing code; this is needed for all cues.
     def add_to_world(self, ax):
@@ -174,12 +192,12 @@ class Cue(Entity):
         :param ax: The Axes3D object which holds the world
         :return: Unused
         """
-        geometric_vector = self.get_vector_description()
+        geometric_vector = self.get_scaled_vector_description()
         o_x, o_y, o_z = [[x] for x in self.origin().get_cartesian_as_list()]
         geo_x, geo_y, geo_z = [[x] for x in geometric_vector.get_cartesian_as_list()]
 
         # Not 2D so I don't need the scaling parameters
-        ax.quiver(o_x, o_y, o_z, geo_x, geo_y, geo_z, color='tab:gray', arrow_length_ratio=0.1)
+        ax.quiver(o_x, o_y, o_z, geo_x, geo_y, geo_z, color=colours.SCALED_GEOMETRIC_CUE_VECTOR_COLOUR, arrow_length_ratio=0.1)
 
     def show_individual(self, ax):
         """
@@ -189,7 +207,7 @@ class Cue(Entity):
         """
         # Retrieve the spherical parameters of the world positional vector
 
-        geo_vector = self.get_vector_description()
+        geo_vector = self.get_scaled_vector_description()
         geo_list = geo_vector.get_spherical_as_list()
 
         # The resultant vector pitched down so it runs along the ground, required
@@ -206,4 +224,4 @@ class Cue(Entity):
         proj_x, proj_y, prox_z = [[x] for x in projected_result.get_cartesian_as_list()]
 
         # Not 2D so I don't need the scaling parameters
-        ax.quiver(o_x, o_y, o_z, proj_x, proj_y, prox_z, color='tab:brown', arrow_length_ratio=0.1)
+        ax.quiver(o_x, o_y, o_z, proj_x, proj_y, prox_z, color=colours.SCALED_PROJECTED_CUE_VECTOR_COLOUR, arrow_length_ratio=0.1)

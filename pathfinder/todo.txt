@@ -1,10 +1,8 @@
-Known issues (if ever you don't have a task, come here):
-- Angles are correct but systems are inconsistent, some output has +ve as clockwise,
-  other output has -ve as clockwise. This needs to be consistent.
-
-- Wind cue label is broken due to wind not having a "world position". This world position
-  should be up by 1 and out by 1 (in the wind direction) as that's where the wind vector
-  is drawn.
+General:
+- Legends for each plot.
+- Implementation of different strategies.
+  - Assume cues are equally weighted unless weightings are defined. Makes config easier.
+- Need an alternative strategy.
 
 Shelved for now:
 - Combined cue strength in polar plots should be limited at 1, otherwise the end of the
@@ -12,6 +10,42 @@ Shelved for now:
   and combined strengths of more than 1 should still be displayed in the 3D world.
 
   Reason: I need to speak to Barbara about this.
+
+25 / 10 / 2019:
+Todo:
+
+
+- Add weightings as well
+  - Replaced weighting with scaling:
+    Allows the user to scale by multiplying or by setting them as "weights"
+- Packaging:
+  - Figure out the neatest way to run this from Jupyter
+  - Setup and installation instructions in a readme once Jupyter is working
+  - Software explanation would be really good. How is the world defined, what do all these
+    vectors mean? etc.
+  - Example configurations
+  - Examples of applied literature scenarios.
+
+Done:
+- Implement wta strategy
+- Add a legend
+  - Added a central colour definition file. This defines the colours for both the legends and the plotting.
+  - Not happy with legend positioning but I don't really have a way to fix this.
+
+Notes:
+- Notes from wta:
+  - If multiple strongest cues? -> Confusion?
+  - Also what if there are multiple strongest cues of different modalities?
+  - Maybe this should be a simple strongest only.
+    - How do we define strongest? Is it the strongest as configured? Because the position of,
+      for example, a light has an effect on the projected cue.
+    - The idea that confidence improves as elevation of light decreases may be flawed but we
+      don't actually know at the minute.
+  - Maybe also:
+    - weighted-wta: Takes into account preferences between different cues.
+    - weighted-avg: Takes into account preferences and takes an average.
+    - strongest-avg: Average of strongest cues of different types.
+    - weighted-strongest-avg: strongest-avg but cue preferences are taken into account.
 
 24 / 10 / 2019:
 Todo:
@@ -85,6 +119,7 @@ Notes:
   - Then I could import it into "cue" and use this to add some stuff???
   - In any case I think this requires a fair bit of plumbing.
 - Label direction could be better I think. I'll leave it as is for now.
+
 17 / 10 / 2019:
 Todo:
 - Beetle.add_to_2D method for the 2D plots.

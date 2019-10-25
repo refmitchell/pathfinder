@@ -5,7 +5,7 @@ Class to represent a single light cue, green or UV.
 from pathfinder.world.cue import Cue
 
 import numpy as np
-
+import pathfinder.configuration as conf
 
 class Light(Cue):
     def __init__(self, name, strength=1, elevation=np.pi/4, azimuth=np.pi/2, colour='green'):
@@ -19,6 +19,7 @@ class Light(Cue):
         """
         super().__init__(name, strength=strength, elevation=elevation, azimuth=azimuth)
         self.__colour = colour
+        self.set_scale_factor(conf.light_multiplier)
 
     def add_to_world(self, ax):
         """

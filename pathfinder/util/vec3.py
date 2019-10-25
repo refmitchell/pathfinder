@@ -198,4 +198,5 @@ class Vec3:
         Get 2D polar coordinates, r and phi
         :return: a list containing r and phi
         """
-        return [-self.__phi, self.__r]
+        r = self.__r if self.__r <= 1 else 1
+        return [-self.__phi, r]

@@ -28,7 +28,7 @@
 # First roll setup
 #
 
-# Optional settings (must be configured for both rolls independently!)
+# Optional settings
 settings:
   # Display
   show-labels: True     # Show a label for each cue (matches the name given below)

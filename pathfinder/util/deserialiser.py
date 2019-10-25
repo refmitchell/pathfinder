@@ -8,6 +8,10 @@ import yaml
 import numpy as np
 
 
+#
+# This file is inherently messy. Need to account for a lot of optional configuration and store configuration
+# globally.
+#
 class Deserialiser:
     """
     Class to deserialise a pyyaml config file into the objects available.
@@ -68,7 +72,7 @@ class Deserialiser:
 
     def __decode_global_settings(self, settings):
         """
-        Decode optional global settings, set in conf module from here.
+        Decode and set optional global settings, set in conf module from here.
         :param settings: The dictionary with the settings.
         :return: Unused.
         """
@@ -82,6 +86,20 @@ class Deserialiser:
             conf.combination_strategy = settings['combination-strategy']
         if 'confidence-threshold' in settings:
             conf.confidence_threshold = settings['confidence-threshold']
+        if 'cue-strength-scaling' in settings:
+            # More nested options so delegate.
+            self.__decode_scaling_parameters(settings['cue-strength-scaling'])
+
+    def __decode_scaling_parameters(self, scaling):
+        """
+        Decode and set optional cue scaling parameters which set multipliers for the strength of each cue.
+        :param scaling: The dictionary with the scaling section
+        :return: Unused.
+        """
+        if 'light' in scaling:
+            conf.light_multiplier = scaling['light']
+        if 'wind' in scaling:
+            conf.wind_multiplier = scaling['wind']
 
     def __decode_cues(self, cuedefs):
         """

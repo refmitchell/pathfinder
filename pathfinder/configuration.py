@@ -12,11 +12,12 @@ show_geometry = False
 show_individual = False
 combination_strategy = "sum"
 confidence_threshold = 0
+light_multiplier = 1
+wind_multiplier = 1
 
 # Cue configuration lists
 cues_roll_one = []
 cues_roll_two = []
-
 
 def print_configuration():
     print("=== Optional configuration ===\n"

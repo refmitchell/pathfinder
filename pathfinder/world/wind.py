@@ -4,6 +4,7 @@ from pathfinder.util.vec3 import Vec3
 import pathfinder.configuration as conf
 
 import numpy as np
+import pathfinder.configuration as conf
 
 
 class Wind(Cue):
@@ -22,6 +23,7 @@ class Wind(Cue):
         z += 1  # Add 1 to the z coordinate of this vector
         label_vector.set_cartesian(x, y, z)
         self.set_label_position(label_vector)
+        self.set_scale_factor(conf.wind_multiplier)
 
     def add_to_world(self, ax):
         """
