@@ -5,6 +5,7 @@ from pathfinder.util.vec3 import Vec3, vector_sum_list, projection, angle_betwee
 import pathfinder.configuration as conf
 
 import numpy as np
+from pylab import Circle
 
 
 class Beetle(Entity):
@@ -18,6 +19,7 @@ class Beetle(Entity):
         self.__second_cue = Vec3(magnitude=1, theta=np.pi / 2, phi=0)
         self.__angle_offset = angle_between_azimuthal(self.__first_roll, self.__first_cue)
         self.__strategy = conf.combination_strategy
+        self.__confidence_threshold = conf.confidence_threshold
 
     def get_result_string(self):
         change_in_bearing = angle_between_degrees(self.__first_roll, self.__second_roll)
@@ -118,6 +120,18 @@ class Beetle(Entity):
                       angles='xy',
                       scale_units='xy',
                       scale=1)
+
+        # If a confidence threshold has been set, draw it on the polar plot
+        if self.__confidence_threshold > 0:
+
+            confidence_ring = Circle(
+                (0, 0),
+                self.__confidence_threshold,
+                alpha=0.3,
+                color='tab:gray',
+                transform=ax.transData._b # Required to get the circle to plot correctly in polar axes.
+                )
+            ax.add_artist(confidence_ring)
 
     def add_to_world(self, ax, draw_bearing_change=False):
         """

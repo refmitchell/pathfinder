@@ -13,6 +13,14 @@ Shelved for now:
 
   Reason: I need to speak to Barbara about this.
 
+24 / 10 / 2019:
+Todo:
+- Look into Jupyter notebooks for
+Done:
+- Added a menotaxis threshold parameter which indicates the minimum confidence required
+  for successful menotaxis. I.e. if the resultant cue vector is shorter than the threshold
+  value, we would expect menotaxis to be unsuccessful.
+
 23 / 10 / 2019:
 Todo:
 - For now, focus on bugfixes:

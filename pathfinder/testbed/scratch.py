@@ -18,15 +18,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-if __name__ == '__main__':
+def main():
     print("Project root directory: " + ROOT_DIR)
     print("Using configuration file: " + CONFIG_FILE)
 
     deserialiser = Deserialiser()
 
-    cue_list = deserialiser.init_configuration()
+    deserialiser.init_configuration()
 
-    devax = DevAxes(magnitude=0.5)
     devcompass = DevCompassMarkings()
     dome = Dome()
     beetle = Beetle()
@@ -87,7 +86,7 @@ if __name__ == '__main__':
     first_roll_polar_ax.grid(False)
     first_roll_polar_ax.set_theta_direction(-1)
     first_roll_polar_ax.set_theta_zero_location("N")
-    first_roll_polar_ax.set_title("First roll path and cue strengths")
+    first_roll_polar_ax.set_title("Roll 1: path and cue vector")
 
     second_roll_polar_ax.set_rticks([])
     second_roll_polar_ax.set_rmin(0)
@@ -97,7 +96,12 @@ if __name__ == '__main__':
     second_roll_polar_ax.grid(False)
     second_roll_polar_ax.set_theta_direction(-1)
     second_roll_polar_ax.set_theta_zero_location("N")
-    second_roll_polar_ax.set_title("Second"
-                                   " roll path and cue strengths")
+    second_roll_polar_ax.set_title("Roll 2: bearing and cue vector")
+
+
 
     plt.show()
+
+
+if __name__ == '__main__':
+    main()

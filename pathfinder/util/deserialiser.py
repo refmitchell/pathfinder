@@ -80,6 +80,8 @@ class Deserialiser:
             conf.show_individual = settings['show-individual']
         if 'combination-strategy' in settings:
             conf.combination_strategy = settings['combination-strategy']
+        if 'confidence-threshold' in settings:
+            conf.confidence_threshold = settings['confidence-threshold']
 
     def __decode_cues(self, cuedefs):
         """

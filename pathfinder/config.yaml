@@ -1,3 +1,4 @@
+# %load pathfinder/config.yaml
 # Pathfinder configuration file
 
 # Supported cues:
@@ -31,12 +32,19 @@
 # Optional settings (must be configured for both rolls independently!)
 settings:
   # Display
-  show-labels: False     # Show a label for each cue (matches the name given below)
-  show-geometry: False   # Show the true geometric vectors used for cue computation.
-  show-individual: False # Show the directional prompt for each individual cue as well as the combined.
+  # Valid: True, False
+  show-labels: True     # Show a label for each cue (matches the name given below)
+  show-geometry: True   # Show the true geometric vectors used for cue computation.
+  show-individual: True # Show the directional prompt for each individual cue as well as the combined.
 
-  # Beetle
-  combination-strategy: "avg" # Set combination strategy ("avg" will be the default if none configured)
+  ### Beetle ###
+  # Set combination strategy ("avg" will be the default if none configured)
+  # Valid: avg, wta
+  combination-strategy: "avg"
+
+  # Minimum "confidence" required to provide successful menotaxis, default is 0
+  # Valid: x, where 0 <= x <= 1.
+  confidence-threshold: 0.2
 
 # Mandatory (if the cues section is not present the software will not work)
 cues-roll-one:
@@ -44,6 +52,11 @@ cues-roll-one:
     strength: 1
     elevation: 45
     azimuth: 45
+
+  light-1:
+    strength: 1
+    elevation: 80
+    azimuth: 225
 
 #
 # Second roll setup
