@@ -21,7 +21,7 @@ settings:
   ### Beetle settings ###
   # Set combination strategy (Default: "avg")
   # Valid: avg, wta
-  combination-strategy: "avg"
+  combination-strategy: "wta"
 
   # Specify the scaling applied to each cue. The number given is applied as a direct multiplier to the cue strength
   # for each cue of the appropriate type. For example, if we want to see what would happen if the beetle is twice as
