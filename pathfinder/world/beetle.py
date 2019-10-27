@@ -210,9 +210,10 @@ class Beetle(Entity):
             if len(max_indices) > 1:
                 return Vec3(magnitude=0)
 
-            winner = vector_descriptions[magnitudes.index(max(magnitudes))].get_spherical_as_list()
-            winner_ground = Vec3(magnitude=winner[0], theta=np.pi/2, phi=winner[2])
+            winner = vector_descriptions[magnitudes.index(max(magnitudes))]
+            winner_sphere = winner.get_spherical_as_list()
+            winner_ground = Vec3(magnitude=winner_sphere[0], theta=np.pi/2, phi=winner_sphere[2])
             winner_projection = projection(winner, winner_ground)
-
+            print(winner_projection)
             # Return the vector with the greatest magnitude
             return winner_projection
