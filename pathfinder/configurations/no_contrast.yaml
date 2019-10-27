@@ -1,28 +1,4 @@
-# Pathfinder configuration file
-
-# Supported cues:
-# light, requires a strength, elevation, and azimuth
-# wind, requires a strength and a direction
-
-# Example cue configuration
-# cues:
-#   light-0:
-#     strength: 1
-#     elevation: 45
-#     azimuth: 90
-#   wind-0:
-#     strength: 1
-#     direction: 45
-#
-
-# Stuff to note:
-# All cues need a number (e.g. light-0) because their names have to be unique.
-# All cues have to contain their type (e.g. wind, or light) so that the parser knows
-# what objects to create.
-# File structure is important, BACKUP THIS FILE in case it gets corrupted. None of the
-# structure is error checked so I don't know how it will behave if the structure is
-# wrong!
-# Only valid parameter types will be incorporated, invalid ones will be ignored.
+# Recreating 0% contrast and equal intensity from "Stellar performance"
 
 #
 # First roll setup
@@ -80,8 +56,6 @@ cues-roll-one:
     elevation: 75
     azimuth: 225
 
-
-
 #
 # Second roll setup
 #
@@ -89,13 +63,9 @@ cues-roll-two:
   light-0:
     strength: 1
     elevation: 45
-    azimuth: 135
+    azimuth: 0
 
   light-1:
-    strength: 2
-    elevation: 30
-    azimuth: -45
-
-  wind-0:
-    strength: 2
-    direction: 90
+    strength: 1
+    elevation: 45
+    azimuth: 180

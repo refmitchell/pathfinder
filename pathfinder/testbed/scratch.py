@@ -20,12 +20,12 @@ import os
 def main(config_file=""):
     # If a config file is specified,
     if config_file != "":
-        defn.CONFIG_FILE = os.path.join(defn.ROOT_DIR, config_file)
+        defn.CONFIG_FILE = os.path.join(defn.CONFIG_DIR, config_file)
 
     print("Project root directory: " + defn.ROOT_DIR)
     print("Using configuration file: " + defn.CONFIG_FILE)
 
-    deserialiser = Deserialiser()
+    deserialiser = Deserialiser(configuration_path=defn.CONFIG_FILE)
 
     deserialiser.init_configuration()
 
