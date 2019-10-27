@@ -11,18 +11,22 @@ linux use:
 `$: conda create --name pathfinder`
 
 Once you have created your virtual environment, activate it with:
+
 `$: conda activate pathfinder`
 
 You need to install matplotlib, numpy, and jupyterlab to use the tool. These
 can be installed with:
+
 `$: conda install numpy matplotlib jupyterlab`
 
 Once the libraries are installed, you can run the application from
 INSTALL_DIR/pathfinder with:
+
 `$: jupyter notebook`
 
 The notebook should explain the rest!
 
 You can deactivate the virtual environment with:
+
 `$: conda deactivate`
 
