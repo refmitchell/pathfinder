@@ -6,6 +6,7 @@ Contact: s1432329@sms.ed.ac.uk
 - Matplotlib (via Anaconda)
 - Numpy (via Anaconda)
 - JupyterLab (via Anaconda)
+- PyYAML (via Anaconda)
 
 ## Setup ##
 Clone the repository to a location of your choice, we'll call this INSTALL_DIR.
@@ -19,8 +20,8 @@ Once you have created your virtual environment, activate it with:
 
 `$: conda activate pathfinder`
 
-You need to install matplotlib, numpy, and jupyterlab to use the tool. These
-can be installed with:
+You need to install Matplotlib, Numpy, JupyterLab, and PyYAML to use the tool.
+These can be installed with:
 
 `$: conda install numpy matplotlib jupyterlab`
 
