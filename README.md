@@ -35,3 +35,7 @@ You can deactivate the virtual environment with:
 
 `$: conda deactivate`
 
+The software has not been tested on Windows, however there is no linux-specific
+code. Following the equivalent Anaconda setup on Windows should work. If you
+experience problems with Windows please get in touch. Miniconda should also
+work if you're short on space, but again, this hasn't been tested.
