@@ -1,7 +1,12 @@
 # Pathfinder: a tool for predicting dung beetle menotactic behaviour #
 Contact: s1432329@sms.ed.ac.uk
+
 ## Requirements ##
 - Anaconda (Python 3.7 version) (https://www.anaconda.com/distribution/#download-section)
+- Matplotlib (via Anaconda)
+- Numpy (via Anaconda)
+- JupyterLab (via Anaconda)
+
 ## Setup ##
 Clone the repository to a location of your choice, we'll call this INSTALL_DIR.
 
