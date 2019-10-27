@@ -2,23 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fda5ecd4-8e25-4735-bded-a9f18601f7c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pathfinder/util/colours.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pathfinder/util/legends.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Test Notebook-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/Test Notebook-checkpoint.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Test Notebook.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Test Notebook.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pathfinder/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pathfinder/configuration.py" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/configuration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pathfinder/definitions.py" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/definitions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pathfinder/no_contrast.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/no_contrast.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pathfinder/testbed/scratch.py" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/testbed/scratch.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pathfinder/configurations/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/configurations/config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pathfinder/todo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/todo.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pathfinder/util/deserialiser.py" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/util/deserialiser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pathfinder/util/vec3.py" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/util/vec3.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pathfinder/world/beetle.py" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/world/beetle.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pathfinder/world/cue.py" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/world/cue.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pathfinder/world/light.py" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/world/light.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pathfinder/world/wind.py" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/world/wind.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,6 +33,9 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pathfinder/configurations" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/pathfinder" />
       <recent name="$PROJECT_DIR$/source/testbed" />

@@ -30,7 +30,7 @@ class Cue(Entity):
         :param azimuth: The azimuth at which the cue sits on the dome (from the x-axis). Radians.
         """
         super().__init__()
-        self.__strength = strength
+        self.__strength = strength if strength > 0 else 0
         self.__elevation = elevation
         self.__azimuth = azimuth
         self.__world_position = self.__update_world_position()
@@ -159,12 +159,13 @@ class Cue(Entity):
         :param ax:
         :return: Unused
         """
-        if conf.show_labels:
-            self.add_label_to_world(ax)
+
         if conf.show_individual:
             self.show_individual(ax)
         if conf.show_geometry:
             self.add_geometry_to_world(ax)
+        if conf.show_labels:
+            self.add_label_to_world(ax)
 
     def add_label_to_world(self, ax):
         """

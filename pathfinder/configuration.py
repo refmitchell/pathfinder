@@ -3,14 +3,14 @@ Module to contain the configuration information loaded from the config file.
 
 DO NOT MODIFY THIS FILE!
 
-Use config.yaml to change the settings.
+Use yaml files in configurations directory to change the settings.
 """
 
 # Optional settings (set defaults)
 show_labels = False
 show_geometry = False
 show_individual = False
-combination_strategy = "sum"
+combination_strategy = "avg"
 confidence_threshold = 0
 light_multiplier = 1
 wind_multiplier = 1
@@ -26,4 +26,6 @@ def print_configuration():
           "show-individual: " + str(show_individual) + "\n"
           "combination-strategy: " + combination_strategy + "\n"
           "confidence-threshold: " + str(confidence_threshold) + "\n"
+          "light-multiplier: " + str(light_multiplier) + "\n"
+          "wind-multiplier:  " + str(wind_multiplier) + "\n"                                                       
           "===============================\n")

@@ -11,6 +11,11 @@ Shelved for now:
 
   Reason: I need to speak to Barbara about this.
 
+27 / 10 / 2019:
+Todo:
+- In WTA combined cue vector isn't projected onto the ground for the second roll.
+- Jupyter notebook stuff.
+
 25 / 10 / 2019:
 Todo:
 
