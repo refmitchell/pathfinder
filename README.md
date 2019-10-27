@@ -1,4 +1,4 @@
-# Pathfinder: a tool for predicting dung beetle menotactic behaviour #
+# Pathfinder: a tool for modelling dung beetle cue combination strategies. #
 Contact: s1432329@sms.ed.ac.uk
 
 ## Requirements ##
