@@ -28,8 +28,8 @@ class Beetle(Entity):
         result_string = "Absolute change in bearing: " + str(np.abs(change_in_bearing))
         confidence = self.__first_cue.get_spherical_as_list()[0]
         confidence_two = self.__second_cue.get_spherical_as_list()[0]
-        print("Confidence in first cue: " + str(confidence))
-        print("Confidence in second cue: " + str(confidence_two))
+        print("Confidence in first combined cue: " + str(confidence))
+        print("Confidence in second combined cue: " + str(confidence_two))
         return result_string
 
     def compute_first_path(self, cues):
