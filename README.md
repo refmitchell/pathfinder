@@ -8,21 +8,21 @@ Clone the repository to a location of your choice, we'll call this INSTALL_DIR.
 Once you have Anaconda installed you need to create a virtual environment. On
 linux use:
 
-<code>$: conda create --name pathfinder </code>
+`$: conda create --name pathfinder`
 
 Once you have created your virtual environment, activate it with:
-<code>$: conda activate pathfinder </code>
+`$: conda activate pathfinder`
 
 You need to install matplotlib, numpy, and jupyterlab to use the tool. These
 can be installed with:
-<code>$: conda install numpy matplotlib jupyterlab </code>
+`$: conda install numpy matplotlib jupyterlab`
 
 Once the libraries are installed, you can run the application from
 INSTALL_DIR/pathfinder with:
-<code>$: jupyter notebook </code>
+`$: jupyter notebook`
 
 The notebook should explain the rest!
 
 You can deactivate the virtual environment with:
-<code>$: conda deactivate </code>
+`$: conda deactivate`
 
