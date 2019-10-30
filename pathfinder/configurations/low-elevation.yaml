@@ -13,8 +13,6 @@
 settings:
   # Display
   show-labels: True     # Show a label for each cue (matches the name given below)
-  show-geometry: False   # Show the true geometric vectors used for cue computation.
-  show-individual: True # Show the directional prompt for each individual cue as well as the combined.
 
   # Beetle
   combination-strategy: "avg" # Set combination strategy ("avg" will be the default if none configured)
@@ -41,17 +39,26 @@ cues-roll-one:
     elevation: 30
     azimuth: -90
 
-
 #
 # Second roll setup
 #
 cues-roll-two:
   light-0:
     strength: 1
-    elevation: 85
-    azimuth: 90
+    elevation: 45
+    azimuth: 180
 
-#  light-1:
-#    strength: 1
-#    elevation: 30
-#    azimuth: -90
+  light-1:
+    strength: 1
+    elevation: 75
+    azimuth: 180
+
+  light-2:
+    strength: 1
+    elevation: 75
+    azimuth: 0
+
+  light-3:
+    strength: 1
+    elevation: 30
+    azimuth: 0

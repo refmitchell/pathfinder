@@ -1,0 +1,27 @@
+settings:
+  show-labels: True
+  combination-strategy: "avg"
+  confidence-threshold: 0.2
+# Two lights at elevation 45deg set 180deg apart
+cues-roll-one:
+  light-0:
+    strength: 1
+    elevation: 45
+    azimuth: 0
+
+  light-1:
+    strength: 1
+    elevation: 45
+    azimuth: 180
+
+# Rotate the pattern by 90deg
+cues-roll-two:
+  light-0:
+    strength: 1
+    elevation: 45
+    azimuth: 90
+
+  light-1:
+    strength: 1
+    elevation: 45
+    azimuth: 270
