@@ -1,0 +1,15 @@
+settings:
+  show-labels: True
+  confidence-threshold: 0.14
+
+cues-roll-one:
+  light-0:
+    strength: 1
+    elevation: 81.9
+    azimuth: 45
+
+cues-roll-two:
+  light-0:
+    strength: 1
+    elevation: 81.9
+    azimuth: 45

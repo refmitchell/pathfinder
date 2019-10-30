@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fda5ecd4-8e25-4735-bded-a9f18601f7c1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/pathfinder/configurations/max-elevation.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pathfinder/configurations/minimum-contrast.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Pathfinder-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/Pathfinder-checkpoint.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Pathfinder.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Pathfinder.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pathfinder/configurations/high_elevation.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/configurations/high-elevation.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pathfinder/configurations/low_elevation.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/configurations/low-elevation.yaml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
