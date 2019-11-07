@@ -23,7 +23,7 @@ Once you have created your virtual environment, activate it with:
 You need to install Matplotlib, Numpy, JupyterLab, and PyYAML to use the tool.
 These can be installed with:
 
-`$: conda install numpy matplotlib jupyterlab`
+`$: conda install numpy matplotlib jupyterlab pyyaml`
 
 Once the libraries are installed, you can run the application from
 INSTALL_DIR/pathfinder with:
