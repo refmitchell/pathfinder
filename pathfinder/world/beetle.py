@@ -71,7 +71,7 @@ class Beetle(Entity):
                   o_y,
                   [roll_vector[0], cue_vector[0]],
                   [roll_vector[1], cue_vector[1]],
-                  color=[colours.BEETLE_ROLL_ONE_COLOUR, colours.ROLL_ONE_CUE_COLOUR],
+                  color=[colours.BEETLE_ROLL_COLOUR, colours.CUE_COLOUR],
                   angles='xy',
                   scale_units='xy',
                   scale=1)
