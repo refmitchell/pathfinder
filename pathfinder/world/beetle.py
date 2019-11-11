@@ -58,33 +58,23 @@ class Beetle(Entity):
         ax.plot(o_x, o_y, color=colours.BEETLE_COLOUR, marker='o', markersize=5)
 
         # Plot the first roll
-        first_roll = self.__first_roll.get_polar_as_list()
-        first_cue = self.__first_cue.get_polar_as_list()
+        roll_vector = self.__first_roll.get_polar_as_list()
+        cue_vector = self.__first_cue.get_polar_as_list()
+
+        if draw_bearing_change:
+            # Plot the first roll
+            roll_vector = self.__second_roll.get_polar_as_list()
+            cue_vector = self.__second_cue.get_polar_as_list()
 
         # Quiver plot
         ax.quiver(o_x,
                   o_y,
-                  [first_roll[0], first_cue[0]],
-                  [first_roll[1], first_cue[1]],
+                  [roll_vector[0], cue_vector[0]],
+                  [roll_vector[1], cue_vector[1]],
                   color=[colours.BEETLE_ROLL_ONE_COLOUR, colours.ROLL_ONE_CUE_COLOUR],
                   angles='xy',
                   scale_units='xy',
                   scale=1)
-
-        if draw_bearing_change:
-            # Plot the first roll
-            second_roll = self.__second_roll.get_polar_as_list()
-            second_cue = self.__second_cue.get_polar_as_list()
-
-            # Quiver plot
-            ax.quiver(o_x,
-                      o_y,
-                      [second_roll[0], second_cue[0]],
-                      [second_roll[1], second_cue[1]],
-                      color=[colours.BEETLE_ROLL_TWO_COLOUR, colours.ROLL_TWO_CUE_COLOUR],
-                      angles='xy',
-                      scale_units='xy',
-                      scale=1)
 
         # If a confidence threshold has been set, draw it on the polar plot
         if self.__confidence_threshold > 0:
@@ -110,51 +100,37 @@ class Beetle(Entity):
         # Plot a point to represent the beetle
         ax.plot(origin[0], origin[1], origin[2], color=colours.BEETLE_COLOUR, marker='o', markersize=10)
 
-        # Plot a vector showing the beetle's direction under a given set of cues
-        first_roll = [[x] for x in self.__first_roll.get_cartesian_as_list()]
-        ax.quiver(origin[0],
-                  origin[1],
-                  origin[2],
-                  first_roll[0],
-                  first_roll[1],
-                  first_roll[2],
-                  arrow_length_ratio=0.1,
-                  color=colours.BEETLE_ROLL_ONE_COLOUR
-                  )
-
-        first_cue = [[x] for x in self.__first_cue.get_cartesian_as_list()]
-        ax.quiver(origin[0],
-                  origin[1],
-                  origin[2],
-                  first_cue[0],
-                  first_cue[1],
-                  first_cue[2],
-                  arrow_length_ratio=0.1,
-                  color=colours.ROLL_ONE_CUE_COLOUR
-                  )
+        # Assume we're plotting the first roll
+        roll_vector = [[x] for x in self.__first_roll.get_cartesian_as_list()]
+        cue_vector = [[x] for x in self.__first_cue.get_cartesian_as_list()]
 
         if draw_bearing_change:
-            second_roll = [[x] for x in self.__second_roll.get_cartesian_as_list()]
-            # Colour are broken so plot separately
-            ax.quiver(origin[0],
-                      origin[1],
-                      origin[2],
-                      second_roll[0],
-                      second_roll[1],
-                      second_roll[2],
-                      arrow_length_ratio=0.1,
-                      color=colours.BEETLE_ROLL_TWO_COLOUR
-                      )
-            second_cue = [[x] for x in self.__second_cue.get_cartesian_as_list()]
-            ax.quiver(origin[0],
-                      origin[1],
-                      origin[2],
-                      second_cue[0],
-                      second_cue[1],
-                      second_cue[2],
-                      arrow_length_ratio=0.1,
-                      color=colours.ROLL_TWO_CUE_COLOUR
-                      )
+            # Correct if we're plotting the second
+            roll_vector = [[x] for x in self.__second_roll.get_cartesian_as_list()]
+            cue_vector = [[x] for x in self.__second_cue.get_cartesian_as_list()]
+
+        # Plot the roll and cue vectors
+        ax.quiver(
+            origin[0],
+            origin[1],
+            origin[2],
+            roll_vector[0],
+            roll_vector[1],
+            roll_vector[2],
+            arrow_length_ratio=0.1,
+            color=colours.BEETLE_ROLL_COLOUR
+            )
+
+        ax.quiver(
+            origin[0],
+            origin[1],
+            origin[2],
+            cue_vector[0],
+            cue_vector[1],
+            cue_vector[2],
+            arrow_length_ratio=0.1,
+            color=colours.CUE_COLOUR
+            )
 
     #
     # Private

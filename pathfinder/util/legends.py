@@ -13,12 +13,11 @@ def create_world_legend_handles():
     handles = []
 
     # Define legend for the beetle
-    handles.append(mlines.Line2D([], [], color=colours.BEETLE_ROLL_ONE_COLOUR, linestyle='-', label='First roll direction'))
-    handles.append(mlines.Line2D([], [], color=colours.BEETLE_ROLL_TWO_COLOUR, linestyle='-', label='Second roll direction'))
+    handles.append(
+        mlines.Line2D([], [], color=colours.BEETLE_ROLL_COLOUR, linestyle='-', label='Chosen roll direction'))
 
     # Define legend for combined cues
-    handles.append(mlines.Line2D([], [], color=colours.ROLL_ONE_CUE_COLOUR, linestyle='-', label='First roll combined cue'))
-    handles.append(mlines.Line2D([], [], color=colours.ROLL_TWO_CUE_COLOUR, linestyle='-', label='Second roll combined cue'))
+    handles.append(mlines.Line2D([], [], color=colours.CUE_COLOUR, linestyle='-', label='Combined cue vector'))
 
     # Add legend elements for optional stuff.
     if conf.show_individual:
@@ -37,12 +36,10 @@ def create_polar_legend_handles():
     handles = []
 
     # Define legend for the beetle
-    handles.append(mlines.Line2D([], [], color=colours.BEETLE_ROLL_ONE_COLOUR, linestyle='-', label='First roll direction'))
-    handles.append(mlines.Line2D([], [], color=colours.BEETLE_ROLL_TWO_COLOUR, linestyle='-', label='Second roll direction'))
+    handles.append(mlines.Line2D([], [], color=colours.BEETLE_ROLL_COLOUR, linestyle='-', label='Chosen roll direction'))
 
     # Define legend for combined cues
-    handles.append(mlines.Line2D([], [], color=colours.ROLL_ONE_CUE_COLOUR, linestyle='-', label='First roll combined cue'))
-    handles.append(mlines.Line2D([], [], color=colours.ROLL_TWO_CUE_COLOUR, linestyle='-', label='Second roll combined cue'))
+    handles.append(mlines.Line2D([], [], color=colours.CUE_COLOUR, linestyle='-', label='Combined cue vector'))
 
     # If confidence threshold is defined, need a legend element for that too.
     if conf.confidence_threshold > 0:
