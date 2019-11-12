@@ -57,7 +57,7 @@ cues-roll-one:
 
 ### Second roll setup ###
 cues-roll-two:
-  bright-light:
+  light-0:
     strength: 1
     elevation: 45
     azimuth: 225

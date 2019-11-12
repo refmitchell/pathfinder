@@ -109,5 +109,19 @@ def main(config_file=""):
     plt.show()
 
 
+def wind_and_light_main(cue_info_dictionary):
+    """
+    Dedicated main for the simplified wind and light case for immediate experiments.
+    This will create a configuration file from information provided externally (through a jupyter
+    notebook) and then run the software using that configuration.
+    :param cue_info_dictionary: Dictionary defining the configuration
+    :return: Unused
+    """
+    from pathfinder.util.serialiser import Serialiser
+    filename = "jupyter_auto_conf.yaml"
+    Serialiser.write_configuration_dictionary_to_file(cue_info_dictionary, filename)
+    main(filename)
+
+
 if __name__ == '__main__':
     main()

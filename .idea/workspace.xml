@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fda5ecd4-8e25-4735-bded-a9f18601f7c1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Pathfinder_General.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Pathfinder_General.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pathfinder/util/serialiser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.ipynb_checkpoints/Pathfinder_General-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pathfinder_General.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pathfinder/configurations/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/configurations/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pathfinder/testbed/scratch.py" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/testbed/scratch.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,13 +33,13 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pathfinder/configurations" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/pathfinder/configurations" />
       <recent name="$PROJECT_DIR$/pathfinder" />
       <recent name="$PROJECT_DIR$/source/testbed" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/pathfinder/configurations" />
     </key>
   </component>
   <component name="RunDashboard">
