@@ -86,6 +86,8 @@ class Deserialiser:
             conf.combination_strategy = settings['combination-strategy']
         if 'confidence-threshold' in settings:
             conf.confidence_threshold = settings['confidence-threshold']
+        if 'display-legend' in settings:
+            conf.display_legend = settings['display-legend']
         if 'cue-strength-scaling' in settings:
             # More nested options so delegate.
             self.__decode_scaling_parameters(settings['cue-strength-scaling'])

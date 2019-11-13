@@ -86,7 +86,7 @@ def main(config_file=""):
     second_roll_world_ax.set_title("Roll 2: 3D World")
     second_roll_world_ax.view_init(elev=40, azim=-130)
     second_roll_world_ax.set_axis_off()
-    second_roll_world_ax.legend(handles=create_world_legend_handles(), bbox_to_anchor=(1.05, 1))
+
 
     # Polar plot configuration
     first_roll_polar_ax.set_rticks([])
@@ -110,7 +110,11 @@ def main(config_file=""):
     second_roll_polar_ax.set_theta_direction(-1)
     second_roll_polar_ax.set_theta_zero_location("N")
     second_roll_polar_ax.set_title("Roll 2: path and cue vector")
-    second_roll_polar_ax.legend(handles=create_polar_legend_handles(),bbox_to_anchor=(1.6, 0.2))
+
+    if conf.display_legend:
+        # Add legends if they're enabled.
+        second_roll_world_ax.legend(handles=create_world_legend_handles(), bbox_to_anchor=(1.05, 1))
+        second_roll_polar_ax.legend(handles=create_polar_legend_handles(), bbox_to_anchor=(1.6, 0.2))
 
     plt.show()
 

@@ -18,6 +18,7 @@ import ipywidgets as w
 # which can be processed by the software.
 def update_config(
         show_individual,
+        display_legend,
         show_sensory,
         combination_strategy,
         confidence_threshold,
@@ -35,6 +36,7 @@ def update_config(
     config_dict = {
         "settings": {
             "show-individual": show_individual,
+            "display-legend" : display_legend,
             "show-geometry": show_sensory,
             "combination-strategy": combination_strategy,
             "confidence-threshold": confidence_threshold
@@ -71,6 +73,7 @@ def generate_controls():
         update_config,
         {'manual': True},
         show_individual=w.Checkbox(value=False, description="Show individual cues "),
+        display_legend=w.Checkbox(value=False, description="Enable/disable the legend "),
         show_sensory=w.Checkbox(value=False, description="Show sensory vectors "),
         combination_strategy=w.Dropdown(
             options=["avg", "wta"],

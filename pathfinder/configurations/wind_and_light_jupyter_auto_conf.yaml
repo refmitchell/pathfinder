@@ -17,5 +17,6 @@ cues-roll-two:
 settings:
   combination-strategy: avg
   confidence-threshold: 0.14
+  display-legend: true
   show-geometry: false
   show-individual: false
