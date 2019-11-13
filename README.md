@@ -7,6 +7,7 @@ Contact: s1432329@sms.ed.ac.uk
 - Numpy (via Anaconda)
 - JupyterLab (via Anaconda)
 - PyYAML (via Anaconda)
+- IPywidgets (via Anaconda
 
 ## Setup ##
 Clone the repository to a location of your choice, we'll call this INSTALL_DIR.
@@ -20,17 +21,19 @@ Once you have created your virtual environment, activate it with:
 
 `$: conda activate pathfinder`
 
-You need to install Matplotlib, Numpy, JupyterLab, and PyYAML to use the tool.
-These can be installed with:
+You need to install Matplotlib, Numpy, JupyterLab, IPyWidgets and PyYAML to use
+the tool. These can be installed with:
 
-`$: conda install numpy matplotlib jupyterlab pyyaml`
+`$: conda install numpy matplotlib jupyterlab pyyaml ipywidgets`
 
 Once the libraries are installed, you can run the application from
 INSTALL_DIR/pathfinder with:
 
 `$: jupyter notebook`
 
-The notebook should explain the rest!
+There are two notebooks: 'General' and 'Wind and Light'. The former is for
+general usage the latter is a simplified version which allows configuration
+of one wind cue and one light cue. See each for detailed information.
 
 You can deactivate the virtual environment with:
 
