@@ -1,0 +1,21 @@
+cues-roll-one:
+  light-0:
+    azimuth: 90
+    elevation: 45
+    strength: 1
+  wind-0:
+    direction: 45
+    strength: 1
+cues-roll-two:
+  light-0:
+    azimuth: 90
+    elevation: 45
+    strength: 1
+  wind-0:
+    direction: 45
+    strength: 1
+settings:
+  combination-strategy: avg
+  confidence-threshold: 0.14
+  show-geometry: false
+  show-individual: false
