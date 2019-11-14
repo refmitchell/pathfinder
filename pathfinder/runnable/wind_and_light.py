@@ -23,14 +23,14 @@ def update_config(
         combination_strategy,
         confidence_threshold,
         light_strength_one,
-        light_strength_two,
         light_elevation_one,
-        light_elevation_two,
         light_azimuth_one,
-        light_azimuth_two,
         wind_strength_one,
-        wind_strength_two,
         wind_direction_one,
+        light_strength_two,
+        light_elevation_two,
+        light_azimuth_two,
+        wind_strength_two,
         wind_direction_two
 ):
     config_dict = {
@@ -75,12 +75,14 @@ def generate_controls():
         show_individual=w.Checkbox(value=False, description="Show individual cues "),
         display_legend=w.Checkbox(value=False, description="Enable/disable the legend "),
         show_sensory=w.Checkbox(value=False, description="Show sensory vectors "),
+
         combination_strategy=w.Dropdown(
             options=["avg", "wta"],
             value="avg",
             description="Combination strategy: ",
             layout=Layout(width='50%'),
             style={"description_width": "initial"}),
+
         confidence_threshold=w.BoundedFloatText(
             value=0.14,
             min=0,
@@ -90,6 +92,7 @@ def generate_controls():
             layout=Layout(width='50%'),
             style={"description_width": "initial"}
         ),
+
         light_strength_one=w.FloatText(
             value=1,
             step=0.01,
@@ -97,13 +100,7 @@ def generate_controls():
             layout=Layout(width='50%'),
             style={"description_width": "initial"}
         ),
-        light_strength_two=w.FloatText(
-            value=1,
-            step=0.01,
-            description="Roll two - light strength: ",
-            layout=Layout(width='50%'),
-            style={"description_width": "initial"}
-        ),
+
         light_elevation_one=w.FloatSlider(
             value=45,
             min=0,
@@ -112,14 +109,7 @@ def generate_controls():
             description="Roll one - light elevation: ",
             layout=Layout(width='50%'),
             style={"description_width": "initial"}),
-        light_elevation_two=w.FloatSlider(
-            value=45,
-            min=0,
-            max=90,
-            step=0.1,
-            description="Roll two - light elevation: ",
-            layout=Layout(width='50%'),
-            style={"description_width": "initial"}),
+
         light_azimuth_one=w.FloatSlider(
             value=45,
             min=-180,
@@ -128,14 +118,7 @@ def generate_controls():
             description="Roll one - light azimuth: ",
             layout=Layout(width='50%'),
             style={"description_width": "initial"}),
-        light_azimuth_two=w.FloatSlider(
-            value=45,
-            min=-180,
-            max=180,
-            step=0.1,
-            description="Roll two - light azimuth: ",
-            layout=Layout(width='50%'),
-            style={"description_width": "initial"}),
+
         wind_strength_one=w.FloatText(
             value=1,
             step=0.01,
@@ -143,13 +126,7 @@ def generate_controls():
             layout=Layout(width='50%'),
             style={"description_width": "initial"}
         ),
-        wind_strength_two=w.FloatText(
-            value=1,
-            step=0.01,
-            description="Roll two - wind strength: ",
-            layout=Layout(width='50%'),
-            style={"description_width": "initial"}
-        ),
+
         wind_direction_one=w.FloatSlider(
             value=90,
             min=-180,
@@ -158,6 +135,41 @@ def generate_controls():
             description="Roll one - wind direction: ",
             layout=Layout(width='50%'),
             style={"description_width": "initial"}),
+
+        light_strength_two=w.FloatText(
+            value=1,
+            step=0.01,
+            description="Roll two - light strength: ",
+            layout=Layout(width='50%'),
+            style={"description_width": "initial"}
+        ),
+
+        light_elevation_two=w.FloatSlider(
+            value=45,
+            min=0,
+            max=90,
+            step=0.1,
+            description="Roll two - light elevation: ",
+            layout=Layout(width='50%'),
+            style={"description_width": "initial"}),
+
+        light_azimuth_two=w.FloatSlider(
+            value=45,
+            min=-180,
+            max=180,
+            step=0.1,
+            description="Roll two - light azimuth: ",
+            layout=Layout(width='50%'),
+            style={"description_width": "initial"}),
+
+        wind_strength_two=w.FloatText(
+            value=1,
+            step=0.01,
+            description="Roll two - wind strength: ",
+            layout=Layout(width='50%'),
+            style={"description_width": "initial"}
+        ),
+
         wind_direction_two=w.FloatSlider(
             value=90,
             min=-180,
