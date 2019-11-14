@@ -13,7 +13,7 @@
 settings:
   # Display
   show-labels: True     # Show a label for each cue (matches the name given below)
-  show-geometry: False   # Show the true geometric vectors used for cue computation.
+  show-sensory: False   # Show the true geometric vectors used for cue computation.
   show-individual: True # Show the directional prompt for each individual cue as well as the combined.
 
   # Beetle

@@ -37,7 +37,7 @@ def update_config(
         "settings": {
             "show-individual": show_individual,
             "display-legend" : display_legend,
-            "show-geometry": show_sensory,
+            "show-sensory": show_sensory,
             "combination-strategy": combination_strategy,
             "confidence-threshold": confidence_threshold
         },

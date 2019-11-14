@@ -11,7 +11,7 @@ settings:
   show-labels: False
 
   # Show the true (scaled - see below) geometric vectors used for cue computation. (Default: False)
-  show-geometry: False
+  show-sensory: False
 
   # Show the directional prompt for each individual cue as well as the combined. (Default: False)
   show-individual: False

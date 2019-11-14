@@ -8,7 +8,7 @@ Use yaml files in configurations directory to change the settings.
 
 # Optional settings (set defaults)
 show_labels = False
-show_geometry = False
+show_sensory = False
 show_individual = False
 display_legend = True
 combination_strategy = "avg"
@@ -24,7 +24,7 @@ cues_roll_two = []
 def print_configuration():
     print("=== Optional configuration ===\n"
           "show-labels: " + str(show_labels) + "\n"
-          "show-geometry: " + str(show_geometry) + "\n"
+          "show-geometry: " + str(show_sensory) + "\n"
           "show-individual: " + str(show_individual) + "\n"
           "display-legend: " + str(display_legend) + "\n"
           "combination-strategy: " + combination_strategy + "\n"

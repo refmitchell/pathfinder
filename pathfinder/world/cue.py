@@ -162,7 +162,7 @@ class Cue(Entity):
 
         if conf.show_individual:
             self.show_individual(ax)
-        if conf.show_geometry:
+        if conf.show_sensory:
             self.add_geometry_to_world(ax)
         if conf.show_labels:
             self.add_label_to_world(ax)

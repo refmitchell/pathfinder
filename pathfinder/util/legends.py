@@ -22,7 +22,7 @@ def create_world_legend_handles():
     # Add legend elements for optional stuff.
     if conf.show_individual:
         handles.append(mlines.Line2D([], [], color=colours.SCALED_PROJECTED_CUE_VECTOR_COLOUR, linestyle='-', label='Individual cue indicator'))
-    if conf.show_geometry:
+    if conf.show_sensory:
         handles.append(mlines.Line2D([], [], color=colours.SCALED_GEOMETRIC_CUE_VECTOR_COLOUR, linestyle='-', label='Geometric cue vector'))
 
     return handles

@@ -78,8 +78,8 @@ class Deserialiser:
         """
         if 'show-labels' in settings:
             conf.show_labels = settings['show-labels']
-        if 'show-geometry' in settings:
-            conf.show_geometry = settings['show-geometry']
+        if 'show-sensory' in settings:
+            conf.show_sensory = settings['show-sensory']
         if 'show-individual' in settings:
             conf.show_individual = settings['show-individual']
         if 'combination-strategy' in settings:
