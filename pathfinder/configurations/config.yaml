@@ -49,11 +49,11 @@ cues-roll-one:
   light-0:
     strength: 1
     elevation: 45
-    azimuth: -45
+    azimuth: 45
 
   wind-0:
     strength: 1
-    direction: 90
+    direction: 45
 
 ### Second roll setup ###
 cues-roll-two:
