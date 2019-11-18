@@ -7,7 +7,7 @@ Contact: s1432329@sms.ed.ac.uk
 - Numpy (via Anaconda)
 - JupyterLab (via Anaconda)
 - PyYAML (via Anaconda)
-- IPywidgets (via Anaconda
+- IPywidgets (via Anaconda)
 
 ## Setup ##
 Clone the repository to a location of your choice, we'll call this INSTALL_DIR.
