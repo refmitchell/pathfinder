@@ -184,7 +184,7 @@ class Beetle(Entity):
             # If we have multiple strongest cues cannot make any decision about which
             # to follow.
             if len(max_indices) > 1:
-                return Vec3(magnitude=0)
+                return Vec3(magnitude=0, theta=np.pi/2)
 
             winner = vector_descriptions[magnitudes.index(max(magnitudes))]
             winner_sphere = winner.get_spherical_as_list()
