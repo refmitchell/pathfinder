@@ -77,7 +77,7 @@ def generate_controls():
         show_sensory=w.Checkbox(value=False, description="Show sensory vectors "),
 
         combination_strategy=w.Dropdown(
-            options=["avg", "wta"],
+            options=["avg", "wta", "proj_wta"],
             value="avg",
             description="Combination strategy: ",
             layout=Layout(width='50%'),

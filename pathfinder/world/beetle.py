@@ -190,6 +190,34 @@ class Beetle(Entity):
             winner_sphere = winner.get_spherical_as_list()
             winner_ground = Vec3(magnitude=winner_sphere[0], theta=np.pi/2, phi=winner_sphere[2])
             winner_projection = projection(winner, winner_ground)
-            print(winner_projection)
+
             # Return the vector with the greatest magnitude
             return winner_projection
+
+        elif self.__strategy == "proj_wta":
+            # Projected winner take all. We take the strongest vector of the projected cues. Arguably this makes
+            # far more sense than strict wta.
+            list_descriptions = [x.get_spherical_as_list() for x in vector_descriptions]
+            ground_list_descriptions = [[x[0], np.pi/2, x[2]] for x in list_descriptions]
+            ground_vectors = [Vec3(magnitude=x[0], theta=x[1], phi=x[2]) for x in ground_list_descriptions]
+            projections = [projection(a, b) for (a, b) in zip(vector_descriptions, ground_vectors)]
+            list_descriptions = [x.get_spherical_as_list() for x in projections]
+
+            magnitudes = [x[0] for x in list_descriptions]
+            max_value = max(magnitudes)
+            max_indices = [i for i, x in enumerate(magnitudes) if x == max_value]
+
+            # If we have multiple strongest cues cannot make any decision about which
+            # to follow.
+            if len(max_indices) > 1:
+                return Vec3(magnitude=0, theta=np.pi/2)
+
+            winner = vector_descriptions[magnitudes.index(max(magnitudes))]
+            winner_sphere = winner.get_spherical_as_list()
+            winner_ground = Vec3(magnitude=winner_sphere[0], theta=np.pi/2, phi=winner_sphere[2])
+            winner_projection = projection(winner, winner_ground)
+            
+            # Return the vector with the greatest magnitude
+            return winner_projection
+
+
