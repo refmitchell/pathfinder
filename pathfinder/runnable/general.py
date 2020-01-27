@@ -134,7 +134,7 @@ def wind_and_light_main(cue_info_dictionary):
 
 
 if __name__ == '__main__':
-    main("minimum-contrast.yaml")
+    main("untracked_config.yaml")
 
 
 

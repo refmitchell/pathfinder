@@ -1,6 +1,7 @@
 from pathfinder.definitions import CONFIG_FILE
 from pathfinder.world.light import Light
 from pathfinder.world.wind import Wind
+from pathfinder.world.polarisation_filter import PolarisationFilter
 
 import pathfinder.configuration as conf
 
@@ -70,6 +71,20 @@ class Deserialiser:
 
         return Wind(name, strength=strength, direction=direction)
 
+    def __decode_polarisation_parameters(self, name, dict):
+        if len(dict) == 0:
+            return PolarisationFilter(name)
+
+        strength = 1
+        azimuth = 0
+
+        if "strength" in dict:
+            strength = dict["strength"]
+        if "azimuth" in dict:
+            azimuth = np.radians(dict["azimuth"])
+
+        return PolarisationFilter(name, strength=strength, azimuth=azimuth)
+
     def __decode_global_settings(self, settings):
         """
         Decode and set optional global settings, set in conf module from here.
@@ -102,6 +117,8 @@ class Deserialiser:
             conf.light_multiplier = scaling['light']
         if 'wind' in scaling:
             conf.wind_multiplier = scaling['wind']
+        if 'polarisation' in scaling:
+            conf.polarisation_multiplier = scaling['polarisation']
 
     def __decode_cues(self, cuedefs):
         """
@@ -117,6 +134,8 @@ class Deserialiser:
                 cues_for_this_roll.append(self.__decode_light_parameters(name, parameters))
             elif "wind" in name:
                 cues_for_this_roll.append(self.__decode_wind_parameters(name, parameters))
+            elif "polarisation" in name:
+                cues_for_this_roll.append(self.__decode_polarisation_parameters(name, parameters))
 
         return cues_for_this_roll
 

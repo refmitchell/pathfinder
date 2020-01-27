@@ -15,6 +15,7 @@ combination_strategy = "avg"
 confidence_threshold = 0
 light_multiplier = 1
 wind_multiplier = 1
+polarisation_multiplier = 1
 
 # Cue configuration lists
 cues_roll_one = []
@@ -30,5 +31,6 @@ def print_configuration():
           "combination-strategy: " + combination_strategy + "\n"
           "confidence-threshold: " + str(confidence_threshold) + "\n"
           "light-multiplier: " + str(light_multiplier) + "\n"
-          "wind-multiplier:  " + str(wind_multiplier) + "\n"                                                       
+          "wind-multiplier:  " + str(wind_multiplier) + "\n"
+          "polarisation-multiplier: " + str(polarisation_multiplier) + "\n"                                              
           "===============================\n")
