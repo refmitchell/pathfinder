@@ -135,7 +135,13 @@ class Deserialiser:
             elif "wind" in name:
                 cues_for_this_roll.append(self.__decode_wind_parameters(name, parameters))
             elif "polarisation" in name:
-                cues_for_this_roll.append(self.__decode_polarisation_parameters(name, parameters))
+                # Polarisation filter is special in that it is a bidirectional cue.
+                # Create the filter, extract the mirror and then add both to the cue list.
+                pol_filter = self.__decode_polarisation_parameters(name, parameters)
+                mirror = pol_filter.get_secondary_cue()
+                cues_for_this_roll.append(pol_filter)
+                cues_for_this_roll.append(mirror)
+                conf.polarisation_defined = True  # Set definition flag
 
         return cues_for_this_roll
 

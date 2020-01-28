@@ -17,6 +17,9 @@ light_multiplier = 1
 wind_multiplier = 1
 polarisation_multiplier = 1
 
+# Defined flags, makes tracking cue definitions easier
+polarisation_defined = False
+
 # Cue configuration lists
 cues_roll_one = []
 cues_roll_two = []

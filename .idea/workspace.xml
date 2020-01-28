@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fda5ecd4-8e25-4735-bded-a9f18601f7c1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pathfinder.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pathfinder.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wind and Light.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Wind and Light.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pathfinder/configurations/wind_and_light_jupyter_auto_conf.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/configurations/wind_and_light_jupyter_auto_conf.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pathfinder/runnable/wind_and_light.py" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/runnable/wind_and_light.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pathfinder/configuration.py" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/configuration.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pathfinder/util/deserialiser.py" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/util/deserialiser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pathfinder/world/beetle.py" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/world/beetle.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pathfinder/world/polarisation_filter.py" beforeDir="false" afterPath="$PROJECT_DIR$/pathfinder/world/polarisation_filter.py" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,10 +26,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1Re0r5qIkXaJfwPAaeUlWdNACqW" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -39,18 +46,6 @@
       <recent name="$PROJECT_DIR$/pathfinder" />
       <recent name="$PROJECT_DIR$/source/testbed" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Python.general">
     <configuration name="general" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -193,5 +188,47 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1303" height="215" key="GridCell.Tab.0.bottom" timestamp="1580225519365">
+      <screen x="40" y="27" width="1326" height="741" />
+    </state>
+    <state width="1303" height="215" key="GridCell.Tab.0.bottom/40.27.1326.741@40.27.1326.741" timestamp="1580225519365" />
+    <state width="1303" height="215" key="GridCell.Tab.0.center" timestamp="1580225519364">
+      <screen x="40" y="27" width="1326" height="741" />
+    </state>
+    <state width="1303" height="215" key="GridCell.Tab.0.center/40.27.1326.741@40.27.1326.741" timestamp="1580225519364" />
+    <state width="1303" height="215" key="GridCell.Tab.0.left" timestamp="1580225519364">
+      <screen x="40" y="27" width="1326" height="741" />
+    </state>
+    <state width="1303" height="215" key="GridCell.Tab.0.left/40.27.1326.741@40.27.1326.741" timestamp="1580225519364" />
+    <state width="1303" height="215" key="GridCell.Tab.0.right" timestamp="1580225519365">
+      <screen x="40" y="27" width="1326" height="741" />
+    </state>
+    <state width="1303" height="215" key="GridCell.Tab.0.right/40.27.1326.741@40.27.1326.741" timestamp="1580225519365" />
+    <state width="1303" height="215" key="GridCell.Tab.1.bottom" timestamp="1580225519366">
+      <screen x="40" y="27" width="1326" height="741" />
+    </state>
+    <state width="1303" height="215" key="GridCell.Tab.1.bottom/40.27.1326.741@40.27.1326.741" timestamp="1580225519366" />
+    <state width="1303" height="215" key="GridCell.Tab.1.center" timestamp="1580225519365">
+      <screen x="40" y="27" width="1326" height="741" />
+    </state>
+    <state width="1303" height="215" key="GridCell.Tab.1.center/40.27.1326.741@40.27.1326.741" timestamp="1580225519365" />
+    <state width="1303" height="215" key="GridCell.Tab.1.left" timestamp="1580225519365">
+      <screen x="40" y="27" width="1326" height="741" />
+    </state>
+    <state width="1303" height="215" key="GridCell.Tab.1.left/40.27.1326.741@40.27.1326.741" timestamp="1580225519365" />
+    <state width="1303" height="215" key="GridCell.Tab.1.right" timestamp="1580225519366">
+      <screen x="40" y="27" width="1326" height="741" />
+    </state>
+    <state width="1303" height="215" key="GridCell.Tab.1.right/40.27.1326.741@40.27.1326.741" timestamp="1580225519366" />
+    <state x="192" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1580217501182">
+      <screen x="40" y="27" width="1326" height="741" />
+    </state>
+    <state x="192" y="31" width="1022" height="737" key="SettingsEditor/40.27.1326.741@40.27.1326.741" timestamp="1580217501182" />
+    <state x="359" y="225" key="com.intellij.ide.util.TipDialog" timestamp="1580211271068">
+      <screen x="40" y="27" width="1326" height="741" />
+    </state>
+    <state x="359" y="225" key="com.intellij.ide.util.TipDialog/40.27.1326.741@40.27.1326.741" timestamp="1580211271068" />
   </component>
 </project>
