@@ -202,10 +202,27 @@ class Beetle(Entity):
             max_value = max(magnitudes)
             max_indices = [i for i, x in enumerate(magnitudes) if x == max_value]
 
-            # If we have multiple strongest cues cannot make any decision about which
-            # to follow.
+            # If we have multiple strongest cues either we cannot make any decision about which
+            # to follow, or we have a polarising filter.
+
             if len(max_indices) > 1:
-                return Vec3(magnitude=0, theta=np.pi/2)
+                strongest_cues = [cues[x] for x in max_indices]
+                #strongest_cues = cues[max_indices]
+                type_filter = [
+                    x for x in strongest_cues
+                    if isinstance(x, PolarisationFilter) or isinstance(x, PolarisationFilterMirror)
+                ]
+
+                # Multiple strongest cues, not all of which are polarisation, no decision can be made.
+                if len(type_filter) != len(strongest_cues):
+                    return Vec3(magnitude=0, theta=np.pi/2)
+
+                # If the polarisation cue is strongest, we cannot disambiguate between the two directions so pick one
+                # at random. Return the projection.
+                rand_idx = np.random.randint(0,1)
+                winner = strongest_cues[rand_idx].get_scaled_vector_description().get_spherical_as_list()
+                winner_ground = Vec3(magnitude=winner[0], theta=np.pi/2, phi=winner[2])
+                return projection(winner, winner_ground)
 
             winner = vector_descriptions[magnitudes.index(max(magnitudes))]
             winner_sphere = winner.get_spherical_as_list()
@@ -231,9 +248,28 @@ class Beetle(Entity):
             # If we have multiple strongest cues cannot make any decision about which
             # to follow.
             if len(max_indices) > 1:
-                return Vec3(magnitude=0, theta=np.pi/2)
+                strongest_cues = [cues[x] for x in max_indices]
+                strongest_list_items = [list_descriptions[x] for x in max_indices]
+                type_filter = [
+                    x for x in strongest_cues
+                    if isinstance(x, PolarisationFilter) or isinstance(x, PolarisationFilterMirror)
+                ]
 
-            winner = vector_descriptions[magnitudes.index(max(magnitudes))]
+                # Multiple strongest cues, not all of which are polarisation, no decision can be made.
+                if len(type_filter) != len(strongest_cues):
+                    return Vec3(magnitude=0, theta=np.pi / 2)
+
+                # If dealing with the polarisation cue, choose a direction at random amongst the two. Return the
+                # projection.
+                rand_idx = np.random.randint(0, 1)
+                m, t, p = strongest_list_items[rand_idx]
+                return Vec3(magnitude=m, theta=t, phi=p)
+
+            max_idx = magnitudes.index(max(magnitudes))
+            winner = vector_descriptions[max_idx]
+
+            # Check cue type, polarisation results should be bimodal
+
             winner_sphere = winner.get_spherical_as_list()
             winner_ground = Vec3(magnitude=winner_sphere[0], theta=np.pi/2, phi=winner_sphere[2])
             winner_projection = projection(winner, winner_ground)
