@@ -219,9 +219,10 @@ class Beetle(Entity):
 
                 # If the polarisation cue is strongest, we cannot disambiguate between the two directions so pick one
                 # at random. Return the projection.
-                rand_idx = np.random.randint(0,1)
-                winner = strongest_cues[rand_idx].get_scaled_vector_description().get_spherical_as_list()
-                winner_ground = Vec3(magnitude=winner[0], theta=np.pi/2, phi=winner[2])
+                rand_idx = np.random.randint(0, 1)
+                winner = strongest_cues[rand_idx].get_scaled_vector_description()
+                winner_list = winner.get_spherical_as_list()
+                winner_ground = Vec3(magnitude=winner_list[0], theta=np.pi/2, phi=winner_list[2])
                 return projection(winner, winner_ground)
 
             winner = vector_descriptions[magnitudes.index(max(magnitudes))]

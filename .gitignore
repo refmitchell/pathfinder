@@ -1,3 +1,4 @@
 pathfinder/configurations/untracked_config.yaml
-pathfinder/configurations/jupyter_auto_conf.yaml
+pathfinder/configurations/pol_and_light_jupyter_auto_conf.yaml
+pathfinder/configurations/wind_and_light_jupyter_auto_conf.yaml
 .idea
