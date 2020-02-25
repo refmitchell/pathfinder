@@ -134,6 +134,10 @@ def wind_and_light_main(cue_info_dictionary):
 
 
 if __name__ == '__main__':
+    # Note to developer: correct the input file to config.yaml after development; noticed a habit of
+    # leaving it as untracked_config which is, well, untracked so people cloning the repo won't have it!
+    # TODO: It would be good if this could be set dynamically without needing to change names each time. May be an easy
+    # TODO: way to do this by using environment variables or similar.
     main("untracked_config.yaml")
 
 
