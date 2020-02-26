@@ -163,6 +163,7 @@ class Deserialiser:
             if 'cues-roll-two' in data:
                 conf.cues_roll_two = self.__decode_cues(data['cues-roll-two'])
 
-            conf.print_configuration()
+            # DEBUG #
+            # conf.print_configuration()
 
         return [conf.cues_roll_one, conf.cues_roll_two]

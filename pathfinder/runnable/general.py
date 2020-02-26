@@ -27,8 +27,9 @@ def main(config_file=""):
     if config_file != "":
         defn.CONFIG_FILE = os.path.join(defn.CONFIG_DIR, config_file)
 
-    print("Project root directory: " + defn.ROOT_DIR)
-    print("Using configuration file: " + defn.CONFIG_FILE)
+    # DEBUG #
+    #print("Project root directory: " + defn.ROOT_DIR)
+    #print("Using configuration file: " + defn.CONFIG_FILE)
 
     deserialiser = Deserialiser(configuration_path=defn.CONFIG_FILE)
 
@@ -74,7 +75,9 @@ def main(config_file=""):
 
     beetle.add_to_polar(first_roll_polar_ax)
     beetle.add_to_polar(second_roll_polar_ax, draw_bearing_change=True)
-    print(beetle.get_result_string())
+
+    # DEBUG #
+    # print(beetle.get_result_string())
 
     # Plot the 3D world for the first roll
     first_roll_world_ax.set_title("Roll 1: 3D World")
@@ -99,8 +102,6 @@ def main(config_file=""):
     first_roll_polar_ax.set_theta_zero_location("N")
     first_roll_polar_ax.set_title("Roll 1: path and cue vector")
 
-
-
     second_roll_polar_ax.set_rticks([])
     second_roll_polar_ax.set_rmin(0)
     second_roll_polar_ax.set_rmax(1)
@@ -117,6 +118,14 @@ def main(config_file=""):
         second_roll_polar_ax.legend(handles=create_polar_legend_handles(), bbox_to_anchor=(1.6, 0.2))
 
     plt.show()
+
+    # Print terminal output: this was modified to make the output more readable. Debug statements are still
+    # available as comments.
+    print("Project root directory: " + defn.ROOT_DIR)
+    print("Using configuration file: " + defn.CONFIG_FILE)
+    conf.print_configuration()
+    print(beetle.get_result_string())
+
 
 
 def wind_and_light_main(cue_info_dictionary):
@@ -138,7 +147,7 @@ if __name__ == '__main__':
     # leaving it as untracked_config which is, well, untracked so people cloning the repo won't have it!
     # TODO: It would be good if this could be set dynamically without needing to change names each time. May be an easy
     # TODO: way to do this by using environment variables or similar.
-    main("untracked_config.yaml")
+    main("config.yaml")
 
 
 

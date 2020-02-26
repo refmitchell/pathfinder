@@ -10,7 +10,10 @@ Contact: s1432329@sms.ed.ac.uk
 - IPywidgets (via Anaconda)
 
 ## Setup ##
-Clone the repository to a location of your choice, we'll call this INSTALL_DIR.
+Clone or download the repository to a location of your choice, we'll call this INSTALL_DIR.
+
+Install Anaconda (Python 3.7) using the instructions/download available here:
+https://www.anaconda.com/distribution/#download-section
 
 Once you have Anaconda installed you need to create a virtual environment. On
 linux use:
@@ -39,7 +42,8 @@ You can deactivate the virtual environment with:
 
 `$: conda deactivate`
 
-The software has not been tested on Windows, however there is no linux-specific
-code. Following the equivalent Anaconda setup on Windows should work. If you
-experience problems with Windows please get in touch. Miniconda should also
-work if you're short on space, but again, this hasn't been tested.
+The software was developed on Linux (Ubuntu) and has not been tested on any other
+platforms, however there is no linux-specific
+code. Following the equivalent Anaconda setup on Windows/Mac should work. If you
+experience problems with other platforms please get in touch. Miniconda should
+also work if you're short on space, but again, this hasn't been tested.

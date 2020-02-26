@@ -166,9 +166,6 @@ class Beetle(Entity):
             set_one.append(pol_cues[0])
             set_two.append(pol_cues[1])
 
-            print(str(set_one))
-            print(str(set_two))
-
             # Compute two separate combined cue vectors.
             combination_one = self.__compute_avg_cue(set_one)
             combination_two = self.__compute_avg_cue(set_two)
@@ -176,9 +173,6 @@ class Beetle(Entity):
             # Retrieve magnitudes
             mag_one = combination_one.get_spherical_as_list()[0]
             mag_two = combination_two.get_spherical_as_list()[0]
-
-            print("Mag_one = " + str(mag_one))
-            print("Mag_two = " + str(mag_two))
 
             if mag_one > mag_two:
                 # Combination one is stronger, use that.
@@ -189,7 +183,7 @@ class Beetle(Entity):
 
             # If we reach this statement they're equal in magnitude so pick one at random.
             r = np.random.rand()
-            print("Test")
+
             return combination_one if r > 0.5 else combination_two
 
         elif self.__strategy == "wta":
