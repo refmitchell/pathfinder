@@ -26,12 +26,12 @@ def update_config(
         light_elevation_one,
         light_azimuth_one,
         pol_strength_one,
-        pol_direction_one,
+        pol_azimuth_one,
         light_strength_two,
         light_elevation_two,
         light_azimuth_two,
         pol_strength_two,
-        pol_direction_two
+        pol_azimuth_two
 ):
     config_dict = {
         "settings": {
@@ -49,7 +49,7 @@ def update_config(
             },
             "polarisation-0": {
                 "strength": pol_strength_one,
-                "direction": pol_direction_one
+                "azimuth": pol_azimuth_one
             }
         },
         "cues-roll-two": {
@@ -60,7 +60,7 @@ def update_config(
             },
             "polarisation-0": {
                 "strength": pol_strength_two,
-                "direction": pol_direction_two
+                "azimuth": pol_azimuth_two
             }
         }
     }
@@ -127,12 +127,12 @@ def generate_controls():
             style={"description_width": "initial"}
         ),
 
-        pol_direction_one=w.FloatSlider(
+        pol_azimuth_one=w.FloatSlider(
             value=90,
             min=-180,
             max=180,
             step=0.1,
-            description="Roll one - polarisation direction: ",
+            description="Roll one - polarisation azimuth: ",
             layout=Layout(width='50%'),
             style={"description_width": "initial"}),
 
@@ -170,12 +170,12 @@ def generate_controls():
             style={"description_width": "initial"}
         ),
 
-        pol_direction_two=w.FloatSlider(
+        pol_azimuth_two=w.FloatSlider(
             value=90,
             min=-180,
             max=180,
             step=0.1,
-            description="Roll two - polarisation direction: ",
+            description="Roll two - polarisation azimuth: ",
             layout=Layout(width='50%'),
             style={"description_width": "initial"})
     )
