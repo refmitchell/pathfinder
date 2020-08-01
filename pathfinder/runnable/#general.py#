@@ -28,8 +28,6 @@ def main(config_file=""):
         defn.CONFIG_FILE = os.path.join(defn.CONFIG_DIR, config_file)
 
     # DEBUG #
-    #print("Project root directory: " + defn.ROOT_DIR)
-    #print("Using configuration file: " + defn.CONFIG_FILE)
 
     deserialiser = Deserialiser(configuration_path=defn.CONFIG_FILE)
 

@@ -9,12 +9,13 @@ settings:
   show-labels: False
 
   # Show the true (scaled - see below) geometric vectors used for cue computation. (Default: False)
-  show-sensory: True
+  show-sensory: False
 
   # Show the directional prompt for each individual cue as well as the combined. (Default: False)
-  show-individual: True
+  show-individual: False
 
   # Minimum "confidence" required to provide successful menotaxis. (Default: 0)
+  # 0.14 established from contrast (Foster et al. 2017).
   # Valid: x, where 0 <= x <= 1.
   confidence-threshold: 0.14
 
@@ -46,28 +47,20 @@ settings:
 cues-roll-one:
   light-0:
     strength: 1
-    elevation: 45
-    azimuth: 45
+    elevation: 82
+    azimuth: 40
 
   wind-0:
     strength: 1
-    direction: 45
-
-  polarisation-0:
-    strength: 1
-    direction: -45
+    direction: 40
 
 ### Second roll setup ###
 cues-roll-two:
   light-0:
     strength: 1
-    elevation: 45
-    azimuth: 225
+    elevation: 82
+    azimuth: 40
 
   wind-0:
     strength: 1
-    direction: 45
-
-  polarisation-0:
-    strength: 1
-    direction: -45
+    direction: 160

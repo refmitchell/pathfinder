@@ -63,13 +63,16 @@ class Beetle(Entity):
         cue_vector = self.__first_cue.get_polar_as_list()
 
         if draw_bearing_change:
-            # Plot the first roll
+            # Plot the second roll
             roll_vector = self.__second_roll.get_polar_as_list()
             cue_vector = self.__second_cue.get_polar_as_list()
 
+        print("Roll Vector length: " + str(len(roll_vector)))
+        print("Cue Vector length: " + str(len(cue_vector)))
+        
         # Quiver plot
-        ax.quiver(o_x,
-                  o_y,
+        ax.quiver([o_x, o_x],
+                  [o_y, o_y],
                   [roll_vector[0], cue_vector[0]],
                   [roll_vector[1], cue_vector[1]],
                   color=[colours.BEETLE_ROLL_COLOUR, colours.CUE_COLOUR],
@@ -148,6 +151,7 @@ class Beetle(Entity):
 
         if self.__strategy == "avg":
             # If we don't care about polarisation, don't do a bunch of extra work.
+            print("Polarisation defined: " + str(conf.polarisation_defined))
             if not conf.polarisation_defined:
                 return self.__compute_avg_cue(cues)
 
